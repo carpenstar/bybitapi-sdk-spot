@@ -10,4 +10,9 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class WalletBalance extends PrivateEndpoint implements IGetEndpointInterface
 {
     protected string $url = "/spot/v3/private/account";
+
+    protected function getResponseEntityClassName(): string
+    {
+        return WBResponse::class;
+    }
 }

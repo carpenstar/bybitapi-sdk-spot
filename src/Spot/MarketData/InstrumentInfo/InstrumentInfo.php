@@ -12,4 +12,9 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class InstrumentInfo extends PublicEndpoint implements IGetEndpointInterface
 {
     protected string $url = '/spot/v3/public/symbols';
+
+    protected function getResponseEntityClassName(): string
+    {
+        return IIResponse::class;
+    }
 }

@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IPostEndpointInterface;
 class CancelOrder extends PrivateEndpoint implements IPostEndpointInterface
 {
     protected string $url = '/spot/v3/private/cancel-order';
+
+    public function getQueryBagClassName(): string
+    {
+        return COQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return COResponse::class;
+    }
 }

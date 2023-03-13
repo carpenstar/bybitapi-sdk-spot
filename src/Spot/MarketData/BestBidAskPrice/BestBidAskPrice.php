@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class BestBidAskPrice extends PublicEndpoint implements IGetEndpointInterface
 {
     protected string $url = "/spot/v3/public/quote/ticker/bookTicker";
+
+    public function getQueryBagClassName(): string
+    {
+        return BBAPQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return BBAPResponse::class;
+    }
 }
