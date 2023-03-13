@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class GetOrder extends PrivateEndpoint implements IGetEndpointInterface
 {
     protected string $url = '/spot/v3/private/order';
+
+    public function getQueryBagClassName(): string
+    {
+        return GOQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return GOResponse::class;
+    }
 }

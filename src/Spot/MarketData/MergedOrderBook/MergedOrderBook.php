@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class MergedOrderBook extends PublicEndpoint implements IGetEndpointInterface
 {
     protected string $url = "/spot/v3/public/quote/depth/merged";
+
+    public function getQueryBagClassName(): string
+    {
+        return MOBQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return MOBResponse::class;
+    }
 }

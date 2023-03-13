@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class LastTradedPrice extends PublicEndpoint implements IGetEndpointInterface
 {
     protected string $url = "/spot/v3/public/quote/ticker/price";
+
+    public function getQueryBagClassName(): string
+    {
+        return LTPQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return LTPResponse::class;
+    }
 }

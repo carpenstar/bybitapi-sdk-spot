@@ -13,4 +13,14 @@ class PublicTradingRecords extends PublicEndpoint implements IGetEndpointInterfa
      * @var string $url
      */
     protected string $url = "/spot/v3/public/quote/trades";
+
+    public function getQueryBagClassName(): string
+    {
+        return PTRQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return PTRResponse::class;
+    }
 }

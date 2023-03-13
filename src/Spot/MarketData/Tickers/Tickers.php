@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class Tickers extends PublicEndpoint implements IGetEndpointInterface
 {
     protected string $url = "/spot/v3/public/quote/ticker/24hr";
+
+    public function getQueryBagClassName(): string
+    {
+        return TQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return TResponse::class;
+    }
 }

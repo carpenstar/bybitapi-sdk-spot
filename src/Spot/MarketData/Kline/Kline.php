@@ -10,4 +10,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 class Kline extends PublicEndpoint implements IGetEndpointInterface
 {
     protected string $url = "/spot/v3/public/quote/kline";
+
+    public function getQueryBagClassName(): string
+    {
+        return KQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return KResponse::class;
+    }
 }

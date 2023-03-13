@@ -7,4 +7,14 @@ use Carpenstar\ByBitAPI\Core\Interfaces\IPostEndpointInterface;
 class BatchCancelOrderById extends PrivateEndpoint implements  IPostEndpointInterface
 {
     protected string $url = '/spot/v3/private/cancel-orders-by-ids';
+
+    public function getQueryBagClassName(): string
+    {
+        return BCOBIQueryBag::class;
+    }
+
+    protected function getResponseEntityClassName(): string
+    {
+        return BCOBIResponse::class;
+    }
 }
