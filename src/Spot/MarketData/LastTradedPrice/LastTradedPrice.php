@@ -3,6 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Dto\LastTradedPriceDto;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/public/last-price
@@ -13,11 +14,11 @@ class LastTradedPrice extends PublicEndpoint implements IGetEndpointInterface
 
     public function getQueryBagClassName(): string
     {
-        return LTPQueryBag::class;
+        return LastTradedPrice::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return LTPResponse::class;
+        return LastTradedPriceDto::class;
     }
 }

@@ -3,6 +3,8 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\CancelOrder;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IPostEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Dto\CancelOrderDto;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Options\CancelOrderOptions;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/trade/cancel
@@ -13,11 +15,11 @@ class CancelOrder extends PrivateEndpoint implements IPostEndpointInterface
 
     public function getQueryBagClassName(): string
     {
-        return COQueryBag::class;
+        return CancelOrderOptions::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return COResponse::class;
+        return CancelOrderDto::class;
     }
 }

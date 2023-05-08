@@ -3,6 +3,8 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IPostEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Dto\BatchCancelOrderByIdDto;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Options\BatchCancelOrderByIdOptions;
 
 class BatchCancelOrderById extends PrivateEndpoint implements  IPostEndpointInterface
 {
@@ -10,11 +12,11 @@ class BatchCancelOrderById extends PrivateEndpoint implements  IPostEndpointInte
 
     public function getQueryBagClassName(): string
     {
-        return BCOBIQueryBag::class;
+        return BatchCancelOrderByIdOptions::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return BCOBIResponse::class;
+        return BatchCancelOrderByIdDto::class;
     }
 }

@@ -3,6 +3,8 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Dto\OrderBookDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Options\OrderBookOptions;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/public/depth
@@ -13,11 +15,11 @@ class OrderBook extends PublicEndpoint implements IGetEndpointInterface
 
     public function getQueryBagClassName(): string
     {
-        return OBQueryBag::class;
+        return OrderBookOptions::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return OBResponse::class;
+        return OrderBookDto::class;
     }
 }

@@ -3,6 +3,8 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Dto\PublicTradingRecordsDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Options\PublicTradingRecordsOptions;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/public/recent-trade
@@ -16,11 +18,11 @@ class PublicTradingRecords extends PublicEndpoint implements IGetEndpointInterfa
 
     public function getQueryBagClassName(): string
     {
-        return PTRQueryBag::class;
+        return PublicTradingRecordsOptions::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return PTRResponse::class;
+        return PublicTradingRecordsDto::class;
     }
 }

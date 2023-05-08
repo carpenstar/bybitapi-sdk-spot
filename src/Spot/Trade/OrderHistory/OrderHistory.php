@@ -3,6 +3,8 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\OrderHistory;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Dto\OrderHistoryDto;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Options\OrderHistoryOptions;
 
 class OrderHistory extends PrivateEndpoint implements IGetEndpointInterface
 {
@@ -10,11 +12,11 @@ class OrderHistory extends PrivateEndpoint implements IGetEndpointInterface
 
     public function getQueryBagClassName(): string
     {
-        return OHQueryBag::class;
+        return OrderHistoryOptions::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return OHResponse::class;
+        return OrderHistoryDto::class;
     }
 }

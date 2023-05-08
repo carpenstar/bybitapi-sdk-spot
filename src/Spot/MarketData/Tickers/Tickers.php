@@ -3,6 +3,8 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Dto\TickersDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Options\TickersOptions;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/public/tickers
@@ -13,11 +15,11 @@ class Tickers extends PublicEndpoint implements IGetEndpointInterface
 
     public function getQueryBagClassName(): string
     {
-        return TQueryBag::class;
+        return TickersOptions::class;
     }
 
     protected function getResponseEntityClassName(): string
     {
-        return TResponse::class;
+        return TickersDto::class;
     }
 }

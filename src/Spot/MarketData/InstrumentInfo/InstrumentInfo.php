@@ -3,6 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
+use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Dto\InstrumentInfoDto;
 
 /**
  * Get the spec of symbol information
@@ -15,6 +16,6 @@ class InstrumentInfo extends PublicEndpoint implements IGetEndpointInterface
 
     protected function getResponseEntityClassName(): string
     {
-        return IIResponse::class;
+        return InstrumentInfoDto::class;
     }
 }
