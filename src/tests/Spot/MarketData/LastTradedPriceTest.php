@@ -5,9 +5,9 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Dto\LastTradedPriceDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Response\LastTradedPriceResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Options\LastTradedPriceOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequestOptions;
 use PHPUnit\Framework\TestCase;
 
 class LastTradedPriceTest extends TestCase
@@ -16,28 +16,28 @@ class LastTradedPriceTest extends TestCase
 
     public function testLastTradedPriceRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(LastTradedPrice::class, (new LastTradedPriceOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(LastTradedPrice::class, (new LastTradedPriceRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($bestBidAskEndpoint, []);
-        $this->assertEquals(LastTradedPriceDto::class, $checkMethodResult);
+        $this->assertEquals(LastTradedPriceResponse::class, $checkMethodResult);
     }
 
     public function testLastTradedPriceResponse()
     {
         $lastTradedPriceResponseData = (new CurlResponse(self::$lastTradedPriceApiResponse))
-            ->bindEntity(LastTradedPriceDto::class)
+            ->bindEntity(LastTradedPriceResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $lastTradedPriceResponseData->getBody());
 
         $lastTradedPrice = $lastTradedPriceResponseData->getBody()->fetch();
 
-        /** @var LastTradedPriceDto $checkItem */
-        $this->assertInstanceOf(LastTradedPriceDto::class, $lastTradedPrice);
+        /** @var LastTradedPriceResponse $checkItem */
+        $this->assertInstanceOf(LastTradedPriceResponse::class, $lastTradedPrice);
         $this->assertIsString($lastTradedPrice->getSymbol());
         $this->assertIsFloat($lastTradedPrice->getPrice());
     }

@@ -5,7 +5,7 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Dto\InstrumentInfoDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Response\InstrumentInfoResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\InstrumentInfo;
 use PHPUnit\Framework\TestCase;
 
@@ -18,11 +18,11 @@ class InstrumentInfoTest extends TestCase
         $walletBalanceEndpoint = RestBuilder::make(InstrumentInfo::class);
 
         $reflectionWalletEndpoint = new \ReflectionClass($walletBalanceEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($walletBalanceEndpoint, []);
-        $this->assertEquals(InstrumentInfoDto::class, $checkMethodResult);
+        $this->assertEquals(InstrumentInfoResponse::class, $checkMethodResult);
     }
 
 
@@ -30,16 +30,16 @@ class InstrumentInfoTest extends TestCase
     public function testWalletResponse()
     {
         $walletResponseData = (new CurlResponse(self::$instrumentInfoApiResponse))
-            ->bindEntity(InstrumentInfoDto::class)
+            ->bindEntity(InstrumentInfoResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $walletResponseData->getBody());
 
         $this->assertNotEquals(0, $walletResponseData->getBody()->count());
 
-        /** @var InstrumentInfoDto $checkItem */
+        /** @var InstrumentInfoResponse $checkItem */
         while(!empty($checkItem = $walletResponseData->getBody()->fetch())) {
-            $this->assertInstanceOf(InstrumentInfoDto::class, $checkItem);
+            $this->assertInstanceOf(InstrumentInfoResponse::class, $checkItem);
             $this->assertIsString($checkItem->getName());
             $this->assertIsString($checkItem->getAlias());
             $this->assertIsString($checkItem->getQuoteCoin());

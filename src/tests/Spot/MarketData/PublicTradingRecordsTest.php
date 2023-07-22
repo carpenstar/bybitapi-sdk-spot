@@ -5,8 +5,8 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Dto\PublicTradingRecordsDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Options\PublicTradingRecordsOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Response\PublicTradingRecordsResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request\PublicTradingRecordsRequestOptions;
 use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\PublicTradingRecords;
 use PHPUnit\Framework\TestCase;
 
@@ -16,27 +16,27 @@ class PublicTradingRecordsTest extends TestCase
 
     public function testPublicTradingRecordsRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(PublicTradingRecords::class, (new PublicTradingRecordsOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(PublicTradingRecords::class, (new PublicTradingRecordsRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($bestBidAskEndpoint, []);
-        $this->assertEquals(PublicTradingRecordsDto::class, $checkMethodResult);
+        $this->assertEquals(PublicTradingRecordsResponse::class, $checkMethodResult);
     }
 
     public function testPublicTradingRecordsResponse()
     {
         $publicTradingRecordsData = (new CurlResponse(self::$publicTradingRecordsApiResponse))
-            ->bindEntity(PublicTradingRecordsDto::class)
+            ->bindEntity(PublicTradingRecordsResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $publicTradingRecordsData->getBody());
 
-        /** @var PublicTradingRecordsDto $publicTradingRecord */
+        /** @var PublicTradingRecordsResponse $publicTradingRecord */
         while(!empty($publicTradingRecord = $publicTradingRecordsData->getBody()->fetch())) {
-            $this->assertInstanceOf(PublicTradingRecordsDto::class, $publicTradingRecord);
+            $this->assertInstanceOf(PublicTradingRecordsResponse::class, $publicTradingRecord);
             $this->assertIsBool($publicTradingRecord->getIsBuyerMaker());
             $this->assertIsFloat($publicTradingRecord->getPrice());
             $this->assertIsFloat($publicTradingRecord->getQuantity());

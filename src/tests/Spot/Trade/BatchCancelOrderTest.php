@@ -6,33 +6,22 @@ use Carpenstar\ByBitAPI\Core\Enums\EnumOrderType;
 use Carpenstar\ByBitAPI\Core\Enums\EnumSide;
 use Carpenstar\ByBitAPI\Core\Enums\EnumTimeInForce;
 use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\BatchCancelOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Dto\BatchCancelOrderDto;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Options\BatchCancelOrderOptions;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Options\PlaceOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Response\BatchCancelOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request\BatchCancelOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequestOptions;
 use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
 use PHPUnit\Framework\TestCase;
 
 class BatchCancelOrderTest extends TestCase
 {
-    protected static $host;
-    protected static $apiKey;
-    protected static $secret;
-
-    public function __construct(?string $name = null, array $data = [], $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-        self::$host = getenv("HOST_NAME");
-        self::$apiKey = getenv("API_KEY");
-        self::$secret = getenv("SECRET_KEY");
-    }
 
     public function testBatchCancelOrderEndpoint()
     {
-        $api = (new BybitAPI(self::$host, self::$apiKey, self::$secret));
+        $api = (new BybitAPI($_ENV["HOST_NAME"], $_ENV["API_KEY"], $_ENV["SECRET_KEY"]));
 
         for ($i = 0; $i < 5; $i++) {
             $api
-                ->rest(PlaceOrder::class, (new PlaceOrderOptions())
+                ->rest(PlaceOrder::class, (new PlaceOrderRequestOptions())
                     ->setSymbol('BTCUSDT')
                     ->setOrderType(EnumOrderType::LIMIT)
                     ->setSide(EnumSide::BUY)
@@ -43,10 +32,10 @@ class BatchCancelOrderTest extends TestCase
         }
 
         $response = $api->rest(BatchCancelOrder::class,
-            (new BatchCancelOrderOptions())->setSymbol('BTCUSDT')
+            (new BatchCancelOrderRequestOptions())->setSymbol('BTCUSDT')
         );
 
-        /** @var BatchCancelOrderDto $data */
+        /** @var BatchCancelOrderResponse $data */
         $data = $response->getBody()->fetch();
 
         $this->assertIsBool($data->getSuccess());

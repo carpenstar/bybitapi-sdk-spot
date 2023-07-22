@@ -6,8 +6,8 @@ use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\BestBidAskPrice;
-use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Dto\BestBidAskPriceDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Options\BestBidAskPriceOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Response\BestBidAskPriceResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request\BestBidAskPriceRequestOptions;
 use PHPUnit\Framework\TestCase;
 
 class BestBidAskPriceTest extends TestCase
@@ -16,29 +16,29 @@ class BestBidAskPriceTest extends TestCase
 
     public function testBestBidAskRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(BestBidAskPrice::class, (new BestBidAskPriceOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(BestBidAskPrice::class, (new BestBidAskPriceRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($bestBidAskEndpoint, []);
-        $this->assertEquals(BestBidAskPriceDto::class, $checkMethodResult);
+        $this->assertEquals(BestBidAskPriceResponse::class, $checkMethodResult);
     }
 
     public function testBestBidAskResponse()
     {
         $bestBidAskResponseData = (new CurlResponse(self::$bestBidAskApiResponse))
-            ->bindEntity(BestBidAskPriceDto::class)
+            ->bindEntity(BestBidAskPriceResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $bestBidAskResponseData->getBody());
 
         $this->assertNotEquals(0, $bestBidAskResponseData->getBody()->count());
 
-        /** @var BestBidAskPriceDto $checkItem */
+        /** @var BestBidAskPriceResponse $checkItem */
         $bestBisAsk = $bestBidAskResponseData->getBody()->fetch();
-        $this->assertInstanceOf(BestBidAskPriceDto::class, $bestBisAsk);
+        $this->assertInstanceOf(BestBidAskPriceResponse::class, $bestBisAsk);
         $this->assertIsString($bestBisAsk->getSymbol());
         $this->assertIsFloat($bestBisAsk->getAskPrice());
         $this->assertIsFloat($bestBisAsk->getBidPrice());

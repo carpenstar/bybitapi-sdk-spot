@@ -3,20 +3,23 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\TradeHistory;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
-use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Dto\TradeHistoryDto;
-use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Options\TradeHistoryOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Response\TradeHistoryResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request\TradeHistoryRequestOptions;
 
 class TradeHistory extends PrivateEndpoint implements IGetEndpointInterface
 {
-    protected string $url = "/spot/v3/private/my-trades";
-
-    public function getRequestOptionsDTOClass(): string
+    protected function getEndpointUrl(): string
     {
-        return TradeHistoryOptions::class;
+        return "/spot/v3/private/my-trades";
     }
 
-    protected function getResponseDTOClass(): string
+    protected function getResponseClassname(): string
     {
-        return TradeHistoryDto::class;
+        return TradeHistoryResponse::class;
+    }
+
+    protected function getOptionsClassname(): string
+    {
+        return TradeHistoryRequestOptions::class;
     }
 }

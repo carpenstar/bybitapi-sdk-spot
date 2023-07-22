@@ -5,38 +5,23 @@ use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOrderType;
 use Carpenstar\ByBitAPI\Core\Enums\EnumSide;
 use Carpenstar\ByBitAPI\Core\Enums\EnumTimeInForce;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Options\TickersOptions;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Tickers;
 use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\BatchCancelOrderById;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Options\BatchCancelOrderByIdOptions;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Dto\PlaceOrderDto;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Options\PlaceOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Request\BatchCancelOrderByIdRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Response\PlaceOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequestOptions;
 use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
 use PHPUnit\Framework\TestCase;
 
 class BatchCancelOrderByIdTest extends TestCase
 {
-    protected static $host;
-    protected static $apiKey;
-    protected static $secret;
-
-    public function __construct(?string $name = null, array $data = [], $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-        self::$host = getenv("HOST_NAME");
-        self::$apiKey = getenv("API_KEY");
-        self::$secret = getenv("SECRET_KEY");
-    }
 
     public function testBatchCancelOrderByIdEndpoint()
     {
         $orderLinkIds = [];
-        /** @var PlaceOrderDto $order */
-
-        $api = (new BybitAPI(self::$host, self::$apiKey, self::$secret));
+        $api = (new BybitAPI($_ENV["HOST_NAME"], $_ENV["API_KEY"], $_ENV["SECRET_KEY"]));
 
         for ($i = 0; $i < 5; $i++) {
-           $response = $api->rest(PlaceOrder::class, (new PlaceOrderOptions())
+           $response = $api->rest(PlaceOrder::class, (new PlaceOrderRequestOptions())
                     ->setSymbol("BTCUSDT")
                     ->setOrderType(EnumOrderType::LIMIT)
                     ->setSide(EnumSide::BUY)
@@ -49,7 +34,7 @@ class BatchCancelOrderByIdTest extends TestCase
         }
 
         $response = $api->rest(BatchCancelOrderById::class,
-            (new BatchCancelOrderByIdOptions())->setOrderIds(implode(',', $orderLinkIds))
+            (new BatchCancelOrderByIdRequestOptions())->setOrderIds(implode(',', $orderLinkIds))
         );
 
         $this->assertEquals(0, $response->getReturnCode());

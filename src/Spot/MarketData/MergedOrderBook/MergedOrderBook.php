@@ -3,23 +3,26 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Dto\MergedOrderBookDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Options\MergedOrderBookOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequestOptions;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/public/merge-depth
  */
 class MergedOrderBook extends PublicEndpoint implements IGetEndpointInterface
 {
-    protected string $url = "/spot/v3/public/quote/depth/merged";
-
-    public function getRequestOptionsDTOClass(): string
+    protected function getEndpointUrl(): string
     {
-        return MergedOrderBookOptions::class;
+        return "/spot/v3/public/quote/depth/merged";
     }
 
-    protected function getResponseDTOClass(): string
+    protected function getResponseClassname(): string
     {
-        return MergedOrderBookDto::class;
+        return MergedOrderBookResponse::class;
+    }
+
+    protected function getOptionsClassname(): string
+    {
+        return MergedOrderBookRequestOptions::class;
     }
 }
