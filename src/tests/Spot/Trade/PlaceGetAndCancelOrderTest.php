@@ -6,12 +6,12 @@ use Carpenstar\ByBitAPI\Core\Enums\EnumOrderType;
 use Carpenstar\ByBitAPI\Core\Enums\EnumSide;
 use Carpenstar\ByBitAPI\Core\Enums\EnumTimeInForce;
 use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\CancelOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Dto\CancelOrderDto;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Options\CancelOrderOptions;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Dto\GetOrderDto;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Response\CancelOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request\CancelOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Response\GetOrderResponse;
 use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\GetOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Options\GetOrderOptions;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Options\PlaceOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request\GetOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequestOptions;
 use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
 use PHPUnit\Framework\TestCase;
 
@@ -19,24 +19,17 @@ class PlaceGetAndCancelOrderTest extends TestCase
 {
     public BybitAPI $api;
 
-    protected static $host;
-    protected static $apiKey;
-    protected static $secret;
-
     public function __construct(?string $name = null, array $data = [], $dataName = '')
     {
         parent::__construct($name, $data, $dataName);
-        $this->api = new BybitAPI(self::$host, self::$apiKey, self::$secret);
-        self::$host = getenv("HOST_NAME");
-        self::$apiKey = getenv("API_KEY");
-        self::$secret = getenv("SECRET_KEY");
+        $this->api = new BybitAPI($_ENV["HOST_NAME"], $_ENV["API_KEY"], $_ENV["SECRET_KEY"]);
     }
 
 
     public function testPlaceOrderEndpoint()
     {
         $data = $this->api
-            ->rest(PlaceOrder::class, (new PlaceOrderOptions())
+            ->rest(PlaceOrder::class, (new PlaceOrderRequestOptions())
                 ->setSymbol('BTCUSDT')
                 ->setOrderType(EnumOrderType::LIMIT)
                 ->setSide(EnumSide::BUY)
@@ -57,9 +50,9 @@ class PlaceGetAndCancelOrderTest extends TestCase
     public function testGetOrderEndpoint($orderLinkId)
     {
         /**
-         * @var GetOrderDto $data
+         * @var GetOrderResponse $data
          */
-        $data = $this->api->rest(GetOrder::class, (new GetOrderOptions())
+        $data = $this->api->rest(GetOrder::class, (new GetOrderRequestOptions())
             ->setOrderLinkId($orderLinkId))->getBody()->fetch();
 
         $this->assertIsInt($data->getAccountId());
@@ -90,9 +83,9 @@ class PlaceGetAndCancelOrderTest extends TestCase
     public function testCancelOrderEndpoint($orderLinkId)
     {
         /**
-         * @var CancelOrderDto $data
+         * @var CancelOrderResponse $data
          */
-        $data = $this->api->rest(CancelOrder::class, (new CancelOrderOptions())
+        $data = $this->api->rest(CancelOrder::class, (new CancelOrderRequestOptions())
             ->setOrderLinkId($orderLinkId))->getBody()->fetch();
 
         $this->assertIsInt($data->getOrderId());

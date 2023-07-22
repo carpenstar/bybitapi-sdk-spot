@@ -3,20 +3,23 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\OpenOrders;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
-use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Dto\OpenOrderDto;
-use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Options\OpenOrdersOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Response\OpenOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Request\OpenOrdersResponseOptions;
 
 class OpenOrders extends PrivateEndpoint implements IGetEndpointInterface
 {
-    protected string $url = '/spot/v3/private/open-orders';
-
-    public function getRequestOptionsDTOClass(): string
+    protected function getEndpointUrl(): string
     {
-        return OpenOrdersOptions::class;
+        return "/spot/v3/private/open-orders";
     }
 
-    protected function getResponseDTOClass(): string
+    protected function getResponseClassname(): string
     {
-        return OpenOrderDto::class;
+        return OpenOrderResponse::class;
+    }
+
+    protected function getOptionsClassname(): string
+    {
+        return OpenOrdersResponseOptions::class;
     }
 }

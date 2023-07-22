@@ -5,9 +5,9 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Dto\KlineDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Dto\TickersDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Options\TickersOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response\KlineResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Response\TickersResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request\TickersRequestOptions;
 use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Tickers;
 use PHPUnit\Framework\TestCase;
 
@@ -17,28 +17,28 @@ class TickersTest extends TestCase
 
     public function testKlineRequest()
     {
-        $walletBalanceEndpoint = RestBuilder::make(Tickers::class, (new TickersOptions())->setSymbol('BTCUSDT'));
+        $walletBalanceEndpoint = RestBuilder::make(Tickers::class, (new TickersRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($walletBalanceEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($walletBalanceEndpoint, []);
-        $this->assertEquals(TickersDto::class, $checkMethodResult);
+        $this->assertEquals(TickersResponse::class, $checkMethodResult);
     }
 
     public function testKlineResponse()
     {
         $tickersData = (new CurlResponse(self::$tickersApiResponse))
-            ->bindEntity(TickersDto::class)
+            ->bindEntity(TickersResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $tickersData->getBody());
 
         $ticker = $tickersData->getBody()->fetch();
 
-        /** @var KlineDto $kline */
-        $this->assertInstanceOf(TickersDto::class, $ticker);
+        /** @var KlineResponse $kline */
+        $this->assertInstanceOf(TickersResponse::class, $ticker);
         $this->assertInstanceOf(\DateTime::class, $ticker->getTime());
         $this->assertIsFloat($ticker->getHighPrice());
         $this->assertIsFloat($ticker->getTradingVolume());

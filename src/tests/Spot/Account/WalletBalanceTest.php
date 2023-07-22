@@ -6,7 +6,7 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\Account\WalletBalance\Dto\WalletBalanceDto;
+use Carpenstar\ByBitAPI\Spot\Account\WalletBalance\Response\WalletBalanceResponse;
 use Carpenstar\ByBitAPI\Spot\Account\WalletBalance\WalletBalance;
 use PHPUnit\Framework\TestCase;
 
@@ -27,17 +27,17 @@ class WalletBalanceTest extends TestCase
         $walletBalanceEndpoint = RestBuilder::make(WalletBalance::class);
 
         $reflectionWalletEndpoint = new \ReflectionClass($walletBalanceEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($walletBalanceEndpoint, []);
-        $this->assertEquals(WalletBalanceDto::class, $checkMethodResult);
+        $this->assertEquals(WalletBalanceResponse::class, $checkMethodResult);
     }
 
     public function testWalletResponse()
     {
         $walletResponseData = (new CurlResponse(self::$walletResponse))
-            ->bindEntity(WalletBalanceDto::class)
+            ->bindEntity(WalletBalanceResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $walletResponseData->getBody());
@@ -45,7 +45,7 @@ class WalletBalanceTest extends TestCase
         $this->assertNotEmpty($walletResponseData->getBody()->fetch());
 
         while(!empty($walletItem = $walletResponseData->getBody()->fetch())) {
-            $this->assertInstanceOf(WalletBalanceDto::class, $walletItem);
+            $this->assertInstanceOf(WalletBalanceResponse::class, $walletItem);
             $this->assertIsString($walletItem->getCoin());
             $this->assertIsFloat($walletItem->getFree());
             $this->assertIsFloat($walletItem->getTotal());

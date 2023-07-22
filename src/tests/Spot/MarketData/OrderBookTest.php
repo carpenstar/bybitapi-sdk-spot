@@ -5,9 +5,9 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Dto\OrderBookDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Dto\OrderBookPriceDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Options\OrderBookOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookPriceItemResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request\OrderBookRequestOptions;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\OrderBook;
 use PHPUnit\Framework\TestCase;
 
@@ -17,28 +17,28 @@ class OrderBookTest extends TestCase
 
     public function testOrderBookRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(OrderBook::class, (new OrderBookOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(OrderBook::class, (new OrderBookRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($bestBidAskEndpoint, []);
-        $this->assertEquals(OrderBookDto::class, $checkMethodResult);
+        $this->assertEquals(OrderBookResponse::class, $checkMethodResult);
     }
 
     public function testOrderBookResponse()
     {
         $orderBookData = (new CurlResponse(self::$orderBookApiResult))
-            ->bindEntity(OrderBookDto::class)
+            ->bindEntity(OrderBookResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $orderBookData->getBody());
 
 
-        /** @var OrderBookDto $orderBook */
+        /** @var OrderBookResponse $orderBook */
         while(!empty($orderBook = $orderBookData->getBody()->fetch())) {
-            $this->assertInstanceOf(OrderBookDto::class, $orderBook);
+            $this->assertInstanceOf(OrderBookResponse::class, $orderBook);
             $this->assertInstanceOf(\DateTime::class, $orderBook->getTime());
             $this->assertInstanceOf(EntityCollection::class, $orderBook->getAsks());
             $this->checkCollection($orderBook->getAsks());
@@ -49,7 +49,7 @@ class OrderBookTest extends TestCase
 
     private function checkCollection(EntityCollection $collection)
     {
-        /** @var OrderBookPriceDto $item */
+        /** @var OrderBookPriceItemResponse $item */
         foreach ($collection->all() as $item) {
             $this->assertIsFloat($item->getPrice());
             $this->assertIsFloat($item->getQuantity());

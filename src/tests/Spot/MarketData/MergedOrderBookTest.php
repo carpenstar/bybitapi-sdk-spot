@@ -5,10 +5,10 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Dto\MergedOrderBookDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Dto\MergedOrderBookPriceDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookPriceItemResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\MergedOrderBook;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Options\MergedOrderBookOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequestOptions;
 use PHPUnit\Framework\TestCase;
 
 class MergedOrderBookTest extends TestCase
@@ -17,28 +17,28 @@ class MergedOrderBookTest extends TestCase
 
     public function testMergedOrderBookRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(MergedOrderBook::class, (new MergedOrderBookOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(MergedOrderBook::class, (new MergedOrderBookRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($bestBidAskEndpoint, []);
-        $this->assertEquals(MergedOrderBookDto::class, $checkMethodResult);
+        $this->assertEquals(MergedOrderBookResponse::class, $checkMethodResult);
     }
 
     public function testMergedOrderBookResponse()
     {
         $lastTradedPriceResponseData = (new CurlResponse(self::$mergedOrderBookApiResponse))
-            ->bindEntity(MergedOrderBookDto::class)
+            ->bindEntity(MergedOrderBookResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $lastTradedPriceResponseData->getBody());
 
 
-        /** @var MergedOrderBookDto $lastTradedPrice */
+        /** @var MergedOrderBookResponse $lastTradedPrice */
         while(!empty($lastTradedPrice = $lastTradedPriceResponseData->getBody()->fetch())) {
-            $this->assertInstanceOf(MergedOrderBookDto::class, $lastTradedPrice);
+            $this->assertInstanceOf(MergedOrderBookResponse::class, $lastTradedPrice);
             $this->assertInstanceOf(\DateTime::class, $lastTradedPrice->getTime());
             $this->assertInstanceOf(EntityCollection::class, $lastTradedPrice->getAsks());
             $this->checkCollection($lastTradedPrice->getAsks());
@@ -50,7 +50,7 @@ class MergedOrderBookTest extends TestCase
     private function checkCollection(EntityCollection $collection)
     {
         /**
-         * @var MergedOrderBookPriceDto $item
+         * @var MergedOrderBookPriceItemResponse $item
          */
         foreach ($collection->all() as $item) {
             $this->assertIsFloat($item->getPrice());

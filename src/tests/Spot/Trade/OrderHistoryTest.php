@@ -2,32 +2,21 @@
 namespace Carpenstar\ByBitAPI\Tests\Trade;
 
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Dto\OrderHistoryDto;
-use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Options\OrderHistoryOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Response\OrderHistoryResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Request\OrderHistoryRequestOptions;
 use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\OrderHistory;
 use PHPUnit\Framework\TestCase;
 
 class OrderHistoryTest extends TestCase
 {
-    protected static $host;
-    protected static $apiKey;
-    protected static $secret;
-
-    public function __construct(?string $name = null, array $data = [], $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-        self::$host = getenv("HOST_NAME");
-        self::$apiKey = getenv("API_KEY");
-        self::$secret = getenv("SECRET_KEY");
-    }
 
     public function testOrderHistory()
     {
-        $response = (new BybitAPI(self::$host, self::$apiKey, self::$secret))
-            ->rest(OrderHistory::class, (new OrderHistoryOptions()));
+        $response = (new BybitAPI($_ENV["HOST_NAME"], $_ENV["API_KEY"], $_ENV["SECRET_KEY"]))
+            ->rest(OrderHistory::class, (new OrderHistoryRequestOptions()));
 
         if ($response->getBody()->count() > 0) {
-            /** @var OrderHistoryDto $historyItem */
+            /** @var OrderHistoryResponse $historyItem */
             while (!empty($historyItem = $response->getBody()->fetch())) {
                 $this->assertIsInt($historyItem->getAccountId());
                 $this->assertIsString($historyItem->getSymbol());

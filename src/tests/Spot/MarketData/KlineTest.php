@@ -5,9 +5,9 @@ use Carpenstar\ByBitAPI\Core\Builders\RestBuilder;
 use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Dto\KlineDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response\KlineResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Kline;
-use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Options\KlineOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request\KlineRequestOptions;
 use PHPUnit\Framework\TestCase;
 
 class KlineTest extends TestCase
@@ -16,28 +16,28 @@ class KlineTest extends TestCase
 
     public function testKlineRequest()
     {
-        $walletBalanceEndpoint = RestBuilder::make(Kline::class, (new KlineOptions())->setSymbol('BTCUSDT'));
+        $walletBalanceEndpoint = RestBuilder::make(Kline::class, (new KlineRequestOptions())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($walletBalanceEndpoint);
-        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseDTOClass');
+        $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');
         $checkMethod->setAccessible(true);
 
         $checkMethodResult = $checkMethod->invokeArgs($walletBalanceEndpoint, []);
-        $this->assertEquals(KlineDto::class, $checkMethodResult);
+        $this->assertEquals(KlineResponse::class, $checkMethodResult);
     }
 
     public function testKlineResponse()
     {
         $klineResponseData = (new CurlResponse(self::$klineApiResponse))
-            ->bindEntity(KlineDto::class)
+            ->bindEntity(KlineResponse::class)
             ->handle(EnumOutputMode::MODE_ENTITY);
 
         $this->assertInstanceOf(EntityCollection::class, $klineResponseData->getBody());
 
         $kline = $klineResponseData->getBody()->fetch();
 
-        /** @var KlineDto $kline */
-        $this->assertInstanceOf(KlineDto::class, $kline);
+        /** @var KlineResponse $kline */
+        $this->assertInstanceOf(KlineResponse::class, $kline);
         $this->assertInstanceOf(\DateTime::class, $kline->getTime());
         $this->assertIsString($kline->getSymbol());
         $this->assertIsString($kline->getAlias());

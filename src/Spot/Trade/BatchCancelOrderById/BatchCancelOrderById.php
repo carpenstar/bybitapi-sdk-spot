@@ -3,20 +3,23 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IPostEndpointInterface;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Dto\BatchCancelOrderByIdDto;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Options\BatchCancelOrderByIdOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Response\BatchCancelOrderByIdResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Request\BatchCancelOrderByIdRequestOptions;
 
 class BatchCancelOrderById extends PrivateEndpoint implements  IPostEndpointInterface
 {
-    protected string $url = '/spot/v3/private/cancel-orders-by-ids';
-
-    public function getRequestOptionsDTOClass(): string
+    protected function getEndpointUrl(): string
     {
-        return BatchCancelOrderByIdOptions::class;
+        return "/spot/v3/private/cancel-orders-by-ids";
     }
 
-    protected function getResponseDTOClass(): string
+    protected function getResponseClassname(): string
     {
-        return BatchCancelOrderByIdDto::class;
+        return BatchCancelOrderByIdResponse::class;
+    }
+
+    protected function getOptionsClassname(): string
+    {
+        return BatchCancelOrderByIdRequestOptions::class;
     }
 }

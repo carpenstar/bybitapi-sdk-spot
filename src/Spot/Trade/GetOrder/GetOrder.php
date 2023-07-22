@@ -3,23 +3,26 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\GetOrder;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Dto\GetOrderDto;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Options\GetOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Response\GetOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request\GetOrderRequestOptions;
 
 /**
  * https://bybit-exchange.github.io/docs/spot/trade/get-order
  */
 class GetOrder extends PrivateEndpoint implements IGetEndpointInterface
 {
-    protected string $url = '/spot/v3/private/order';
-
-    public function getRequestOptionsDTOClass(): string
+    protected function getEndpointUrl(): string
     {
-        return GetOrderOptions::class;
+        return "/spot/v3/private/order";
     }
 
-    protected function getResponseDTOClass(): string
+    protected function getResponseClassname(): string
     {
-        return GetOrderDto::class;
+        return GetOrderResponse::class;
+    }
+
+    protected function getOptionsClassname(): string
+    {
+        return GetOrderRequestOptions::class;
     }
 }
