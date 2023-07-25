@@ -18,7 +18,7 @@ class BatchCancelOrderById extends PrivateEndpoint implements  IPostEndpointInte
         return BatchCancelOrderByIdResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return BatchCancelOrderByIdRequestOptions::class;
     }

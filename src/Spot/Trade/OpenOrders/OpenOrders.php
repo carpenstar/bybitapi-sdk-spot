@@ -18,7 +18,7 @@ class OpenOrders extends PrivateEndpoint implements IGetEndpointInterface
         return OpenOrderResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return OpenOrdersResponseOptions::class;
     }

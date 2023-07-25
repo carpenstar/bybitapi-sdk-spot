@@ -21,7 +21,7 @@ class Tickers extends PublicEndpoint implements IGetEndpointInterface
         return TickersResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return TickersRequestOptions::class;
     }

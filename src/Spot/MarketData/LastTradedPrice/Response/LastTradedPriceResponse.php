@@ -1,10 +1,10 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Response;
 
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponse;
 
-class LastTradedPriceResponse extends ResponseEntity implements ILastTradedPriceResponse
+class LastTradedPriceResponse extends AbstractResponse implements ILastTradedPriceResponse
 {
     /**
      * Name of the trading pair

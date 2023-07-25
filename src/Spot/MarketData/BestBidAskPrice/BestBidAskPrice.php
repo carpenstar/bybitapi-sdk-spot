@@ -21,7 +21,7 @@ class BestBidAskPrice extends PublicEndpoint implements IGetEndpointInterface
         return BestBidAskPriceResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return BestBidAskPriceRequestOptions::class;
     }

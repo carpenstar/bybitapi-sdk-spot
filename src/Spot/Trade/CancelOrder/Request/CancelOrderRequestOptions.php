@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class CancelOrderRequestOptions extends OptionsEntity
+class CancelOrderRequestOptions extends AbstractParameters
 {
     /**
      * Order ID. Required if not passing orderLinkId

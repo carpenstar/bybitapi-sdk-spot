@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class BatchCancelOrderRequestOptions extends OptionsEntity
+class BatchCancelOrderRequestOptions extends AbstractParameters
 {
     /**
      * Name of the trading pair

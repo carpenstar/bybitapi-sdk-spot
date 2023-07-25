@@ -2,10 +2,10 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Interfaces\BestBidAskPrice;
 
-class BestBidAskPriceResponse extends ResponseEntity implements BestBidAskPrice
+class BestBidAskPriceResponse extends AbstractResponse implements BestBidAskPrice
 {
     /**
      * Name of the trading pair

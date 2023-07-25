@@ -21,7 +21,7 @@ class OrderBook extends PublicEndpoint implements IGetEndpointInterface
         return OrderBookResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return OrderBookRequestOptions::class;
     }

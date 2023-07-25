@@ -21,7 +21,7 @@ class CancelOrder extends PrivateEndpoint implements IPostEndpointInterface
         return CancelOrderResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return CancelOrderRequestOptions::class;
     }

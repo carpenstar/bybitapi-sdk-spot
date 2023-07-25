@@ -21,7 +21,7 @@ class MergedOrderBook extends PublicEndpoint implements IGetEndpointInterface
         return MergedOrderBookResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return MergedOrderBookRequestOptions::class;
     }

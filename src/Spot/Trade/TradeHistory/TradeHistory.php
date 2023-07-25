@@ -18,7 +18,7 @@ class TradeHistory extends PrivateEndpoint implements IGetEndpointInterface
         return TradeHistoryResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return TradeHistoryRequestOptions::class;
     }

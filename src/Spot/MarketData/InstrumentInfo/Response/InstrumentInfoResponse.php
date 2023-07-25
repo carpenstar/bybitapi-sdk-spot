@@ -1,10 +1,10 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Response;
 
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Interfaces\IInstrumentInfoResponse;
 
-class InstrumentInfoResponse extends ResponseEntity implements IInstrumentInfoResponse
+class InstrumentInfoResponse extends AbstractResponse implements IInstrumentInfoResponse
 {
     /**
      * Name of the trading pair

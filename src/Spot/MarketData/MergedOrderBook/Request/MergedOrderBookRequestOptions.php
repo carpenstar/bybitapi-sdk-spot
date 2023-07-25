@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class MergedOrderBookRequestOptions extends OptionsEntity
+class MergedOrderBookRequestOptions extends AbstractParameters
 {
     /**
      * Name of the trading pair

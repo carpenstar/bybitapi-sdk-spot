@@ -2,10 +2,10 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use DateTime;
 
-class OrderHistoryResponse extends ResponseEntity
+class OrderHistoryResponse extends AbstractResponse
 {
     /**
      * Account ID

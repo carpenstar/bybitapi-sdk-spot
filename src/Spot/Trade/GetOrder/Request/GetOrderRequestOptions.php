@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class GetOrderRequestOptions extends OptionsEntity
+class GetOrderRequestOptions extends AbstractParameters
 {
     /**
      * Order ID. Required if not passing orderLinkId

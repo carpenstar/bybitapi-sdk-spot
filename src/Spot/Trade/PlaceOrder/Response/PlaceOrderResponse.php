@@ -2,9 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 
-class PlaceOrderResponse extends ResponseEntity
+class PlaceOrderResponse extends AbstractResponse
 {
     /**
      * Order ID
