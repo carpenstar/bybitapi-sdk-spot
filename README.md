@@ -9,6 +9,22 @@
 
 **Разработка интеграции еще не закончена, поэтому работоспособность (как полностью, так и отдельных компонентов) не гарантируется.**
 
+## Эндпоинты:
+* MARKET DATA
+- [Best Bid Ask Price](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---best-bid-ask-price)
+- [Instrument Info](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---instrument-info)
+- [Kline](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---kline)
+- [Last Traded Price](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---last-traded-price)
+- [Merged Order Book](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---merged-order-book)
+- [Public Trading Records](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---public-trading-records)
+- [Tickers](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---tickers)
+- [Order Book](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---order-book)  
+* TRADE
+- [Place Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---place-order)
+- [Get Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---get-order)
+- [Cancel Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---cancel-order)
+
+
 ## Установка
 
 ```sh 
