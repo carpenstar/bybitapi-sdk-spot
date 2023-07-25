@@ -21,7 +21,7 @@ class LastTradedPrice extends PublicEndpoint implements IGetEndpointInterface
         return LastTradedPriceResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return LastTradedPriceRequestOptions::class;
     }

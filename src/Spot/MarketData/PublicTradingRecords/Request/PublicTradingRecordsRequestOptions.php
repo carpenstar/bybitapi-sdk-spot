@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class PublicTradingRecordsRequestOptions extends OptionsEntity
+class PublicTradingRecordsRequestOptions extends AbstractParameters
 {
     /**
      * Name of the trading pair

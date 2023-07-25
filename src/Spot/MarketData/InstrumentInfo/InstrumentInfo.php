@@ -23,7 +23,7 @@ class InstrumentInfo extends PublicEndpoint implements IGetEndpointInterface
         return InstrumentInfoResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return StubQueryBag::class;
     }

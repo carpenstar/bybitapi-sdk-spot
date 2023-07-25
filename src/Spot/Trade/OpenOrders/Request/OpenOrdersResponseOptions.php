@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class OpenOrdersResponseOptions extends OptionsEntity
+class OpenOrdersResponseOptions extends AbstractParameters
 {
     /**
      * Name of the trading pair

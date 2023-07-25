@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Response;
 
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 
-class BatchCancelOrderResponse extends ResponseEntity
+class BatchCancelOrderResponse extends AbstractResponse
 {
     /**
      * @var bool $success

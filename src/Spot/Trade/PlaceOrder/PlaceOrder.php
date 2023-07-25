@@ -21,7 +21,7 @@ class PlaceOrder extends PrivateEndpoint implements IPostEndpointInterface
         return PlaceOrderResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return PlaceOrderRequestOptions::class;
     }

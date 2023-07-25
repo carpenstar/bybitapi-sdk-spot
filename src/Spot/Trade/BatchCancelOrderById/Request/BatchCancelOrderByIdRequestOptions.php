@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class BatchCancelOrderByIdRequestOptions extends OptionsEntity
+class BatchCancelOrderByIdRequestOptions extends AbstractParameters
 {
     /**
      * Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.

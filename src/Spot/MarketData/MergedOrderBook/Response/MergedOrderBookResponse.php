@@ -3,12 +3,12 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response;
 
 use Carpenstar\ByBitAPI\Core\Builders\ResponseBuilder;
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
 use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookPriceItemResponse;
 
-class MergedOrderBookResponse extends ResponseEntity implements IMergedOrderBookResponse
+class MergedOrderBookResponse extends AbstractResponse implements IMergedOrderBookResponse
 {
     /**
      * Current time, unit in millisecond

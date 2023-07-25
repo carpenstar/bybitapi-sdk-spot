@@ -2,10 +2,10 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces\ITickersResponse;
 
-class TickersResponse extends ResponseEntity implements ITickersResponse
+class TickersResponse extends AbstractResponse implements ITickersResponse
 {
     /**
      * Current timestamp

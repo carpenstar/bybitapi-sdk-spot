@@ -18,7 +18,7 @@ class OrderHistory extends PrivateEndpoint implements IGetEndpointInterface
         return OrderHistoryResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return OrderHistoryRequestOptions::class;
     }

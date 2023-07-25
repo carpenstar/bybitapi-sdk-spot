@@ -2,10 +2,10 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineResponse;
 
-class KlineResponse extends ResponseEntity implements IKlineResponse
+class KlineResponse extends AbstractResponse implements IKlineResponse
 {
     private \DateTime $time;
 

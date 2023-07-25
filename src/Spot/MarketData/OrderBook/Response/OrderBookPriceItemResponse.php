@@ -1,10 +1,10 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response;
 
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookPriceResponse;
 
-class OrderBookPriceItemResponse extends ResponseEntity implements IOrderBookPriceResponse
+class OrderBookPriceItemResponse extends AbstractResponse implements IOrderBookPriceResponse
 {
     /**
      * Price position value

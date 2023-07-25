@@ -3,11 +3,11 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response;
 
 use Carpenstar\ByBitAPI\Core\Builders\ResponseBuilder;
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookResponse;
 
-class OrderBookResponse extends ResponseEntity implements IOrderBookResponse
+class OrderBookResponse extends AbstractResponse implements IOrderBookResponse
 {
     /**
      * Current time, unit in millisecond

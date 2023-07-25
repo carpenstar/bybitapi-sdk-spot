@@ -21,7 +21,7 @@ class WalletBalance extends PrivateEndpoint implements IGetEndpointInterface
         return WalletBalanceResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return StubQueryBag::class;
     }

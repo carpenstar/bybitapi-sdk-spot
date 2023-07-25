@@ -1,10 +1,10 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice;
 
-class LastTradedPriceRequestOptions extends OptionsEntity
+class LastTradedPriceRequestOptions extends AbstractParameters
 {
 
     /**

@@ -2,10 +2,10 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces\IPublicTradingRecordsResponse;
 
-class PublicTradingRecordsResponse extends ResponseEntity implements IPublicTradingRecordsResponse
+class PublicTradingRecordsResponse extends AbstractResponse implements IPublicTradingRecordsResponse
 {
     /**
      * Order price

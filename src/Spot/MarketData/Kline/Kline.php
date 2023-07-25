@@ -21,7 +21,7 @@ class Kline extends PublicEndpoint implements IGetEndpointInterface
         return KlineResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return KlineRequestOptions::class;
     }

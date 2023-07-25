@@ -1,9 +1,9 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class BestBidAskPriceRequestOptions extends OptionsEntity
+class BestBidAskPriceRequestOptions extends AbstractParameters
 {
     /**
      * Name of the trading pair

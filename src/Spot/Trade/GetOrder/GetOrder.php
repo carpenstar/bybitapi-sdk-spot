@@ -21,7 +21,7 @@ class GetOrder extends PrivateEndpoint implements IGetEndpointInterface
         return GetOrderResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return GetOrderRequestOptions::class;
     }

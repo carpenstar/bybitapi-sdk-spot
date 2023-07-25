@@ -1,7 +1,7 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request;
 
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
 /**
  * Notice: If startTime is not specified, you can only query for records in the last 7 days.
@@ -9,7 +9,7 @@ use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
  * If the orderId is null, fromTicketId is passed, and toTicketId is null,
  * then the result is sorted by ticketId in ascend. Otherwise, the result is sorted by ticketId in descend.
  */
-class TradeHistoryRequestOptions extends OptionsEntity
+class TradeHistoryRequestOptions extends AbstractParameters
 {
     /**
      * Name of the trading pair

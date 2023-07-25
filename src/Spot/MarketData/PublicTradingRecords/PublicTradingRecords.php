@@ -21,7 +21,7 @@ class PublicTradingRecords extends PublicEndpoint implements IGetEndpointInterfa
         return PublicTradingRecordsResponse::class;
     }
 
-    protected function getOptionsClassname(): string
+    protected function getRequestClassname(): string
     {
         return PublicTradingRecordsRequestOptions::class;
     }

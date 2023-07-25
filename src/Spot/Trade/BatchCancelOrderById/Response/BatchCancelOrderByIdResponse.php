@@ -1,12 +1,12 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Response;
 
-use Carpenstar\ByBitAPI\Core\Objects\ResponseEntity;
+use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 
 /**
  * Notice:  If all success, it will be empty
  */
-class BatchCancelOrderByIdResponse extends ResponseEntity
+class BatchCancelOrderByIdResponse extends AbstractResponse
 {
 
     /**
