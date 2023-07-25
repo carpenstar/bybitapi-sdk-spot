@@ -24,6 +24,9 @@
 - [Get Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---get-order)
 - [Cancel Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---cancel-order)
 
+## Требования
+
+- PHP >= 7.4
 
 ## Установка
 
