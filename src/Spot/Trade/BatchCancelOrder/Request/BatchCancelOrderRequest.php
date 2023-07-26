@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class BatchCancelOrderRequestOptions extends AbstractParameters
+class BatchCancelOrderRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -36,7 +36,7 @@ class BatchCancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $symbol
-     * @return BatchCancelOrderRequestOptions
+     * @return BatchCancelOrderRequest
      */
     public function setSymbol(string $symbol): self
     {
@@ -54,7 +54,7 @@ class BatchCancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $side
-     * @return BatchCancelOrderRequestOptions
+     * @return BatchCancelOrderRequest
      */
     public function setSide(string $side): self
     {
@@ -72,7 +72,7 @@ class BatchCancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderTypes
-     * @return BatchCancelOrderRequestOptions
+     * @return BatchCancelOrderRequest
      */
     public function setOrderTypes(string $orderTypes): self
     {
@@ -90,7 +90,7 @@ class BatchCancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderCategory
-     * @return BatchCancelOrderRequestOptions
+     * @return BatchCancelOrderRequest
      */
     public function setOrderCategory(int $orderCategory): self
     {

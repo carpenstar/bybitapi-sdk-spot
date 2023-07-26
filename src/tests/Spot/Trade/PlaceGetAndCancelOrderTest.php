@@ -7,11 +7,11 @@ use Carpenstar\ByBitAPI\Core\Enums\EnumSide;
 use Carpenstar\ByBitAPI\Core\Enums\EnumTimeInForce;
 use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\CancelOrder;
 use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Response\CancelOrderResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request\CancelOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request\CancelOrderRequest;
 use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Response\GetOrderResponse;
 use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\GetOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request\GetOrderRequestOptions;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request\GetOrderRequest;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequest;
 use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
 use PHPUnit\Framework\TestCase;
 
@@ -29,7 +29,7 @@ class PlaceGetAndCancelOrderTest extends TestCase
     public function testPlaceOrderEndpoint()
     {
         $data = $this->api
-            ->rest(PlaceOrder::class, (new PlaceOrderRequestOptions())
+            ->rest(PlaceOrder::class, (new PlaceOrderRequest())
                 ->setSymbol('BTCUSDT')
                 ->setOrderType(EnumOrderType::LIMIT)
                 ->setSide(EnumSide::BUY)
@@ -52,7 +52,7 @@ class PlaceGetAndCancelOrderTest extends TestCase
         /**
          * @var GetOrderResponse $data
          */
-        $data = $this->api->rest(GetOrder::class, (new GetOrderRequestOptions())
+        $data = $this->api->rest(GetOrder::class, (new GetOrderRequest())
             ->setOrderLinkId($orderLinkId))->getBody()->fetch();
 
         $this->assertIsInt($data->getAccountId());
@@ -85,7 +85,7 @@ class PlaceGetAndCancelOrderTest extends TestCase
         /**
          * @var CancelOrderResponse $data
          */
-        $data = $this->api->rest(CancelOrder::class, (new CancelOrderRequestOptions())
+        $data = $this->api->rest(CancelOrder::class, (new CancelOrderRequest())
             ->setOrderLinkId($orderLinkId))->getBody()->fetch();
 
         $this->assertIsInt($data->getOrderId());

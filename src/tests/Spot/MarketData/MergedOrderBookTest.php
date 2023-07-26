@@ -8,7 +8,7 @@ use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookPriceItemResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\MergedOrderBook;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequest;
 use PHPUnit\Framework\TestCase;
 
 class MergedOrderBookTest extends TestCase
@@ -17,7 +17,7 @@ class MergedOrderBookTest extends TestCase
 
     public function testMergedOrderBookRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(MergedOrderBook::class, (new MergedOrderBookRequestOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(MergedOrderBook::class, (new MergedOrderBookRequest())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
         $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');

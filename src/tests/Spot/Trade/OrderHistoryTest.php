@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Tests\Trade;
 
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Response\OrderHistoryResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Request\OrderHistoryRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Request\OrderHistoryRequest;
 use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\OrderHistory;
 use PHPUnit\Framework\TestCase;
 
@@ -13,7 +13,7 @@ class OrderHistoryTest extends TestCase
     public function testOrderHistory()
     {
         $response = (new BybitAPI($_ENV["HOST_NAME"], $_ENV["API_KEY"], $_ENV["SECRET_KEY"]))
-            ->rest(OrderHistory::class, (new OrderHistoryRequestOptions()));
+            ->rest(OrderHistory::class, (new OrderHistoryRequest()));
 
         if ($response->getBody()->count() > 0) {
             /** @var OrderHistoryResponse $historyItem */

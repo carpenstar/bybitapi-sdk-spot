@@ -4,7 +4,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder;
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IPostEndpointInterface;
 use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Response\BatchCancelOrderResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request\BatchCancelOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request\BatchCancelOrderRequest;
 
 class BatchCancelOrder extends PrivateEndpoint implements IPostEndpointInterface
 {
@@ -20,6 +20,6 @@ class BatchCancelOrder extends PrivateEndpoint implements IPostEndpointInterface
 
     protected function getRequestClassname(): string
     {
-        return BatchCancelOrderRequestOptions::class;
+        return BatchCancelOrderRequest::class;
     }
 }

@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PublicEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequest;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Response\LastTradedPriceResponse;
 
 /**
@@ -23,6 +23,6 @@ class LastTradedPrice extends PublicEndpoint implements IGetEndpointInterface
 
     protected function getRequestClassname(): string
     {
-        return LastTradedPriceRequestOptions::class;
+        return LastTradedPriceRequest::class;
     }
 }

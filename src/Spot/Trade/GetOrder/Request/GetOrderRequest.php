@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class GetOrderRequestOptions extends AbstractParameters
+class GetOrderRequest extends AbstractParameters
 {
     /**
      * Order ID. Required if not passing orderLinkId
@@ -30,7 +30,7 @@ class GetOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderId
-     * @return GetOrderRequestOptions
+     * @return GetOrderRequest
      */
     public function setOrderId(string $orderId): self
     {
@@ -48,7 +48,7 @@ class GetOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderLinkId
-     * @return GetOrderRequestOptions
+     * @return GetOrderRequest
      */
     public function setOrderLinkId(string $orderLinkId): self
     {
@@ -66,7 +66,7 @@ class GetOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderCategory
-     * @return GetOrderRequestOptions
+     * @return GetOrderRequest
      */
     public function setOrderCategory(string $orderCategory): self
     {

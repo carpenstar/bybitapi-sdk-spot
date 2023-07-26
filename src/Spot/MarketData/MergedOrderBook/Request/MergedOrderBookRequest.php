@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class MergedOrderBookRequestOptions extends AbstractParameters
+class MergedOrderBookRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -41,7 +41,7 @@ class MergedOrderBookRequestOptions extends AbstractParameters
 
     /**
      * @param string $symbol
-     * @return MergedOrderBookRequestOptions
+     * @return MergedOrderBookRequest
      */
     public function setSymbol(string $symbol): self
     {
@@ -59,7 +59,7 @@ class MergedOrderBookRequestOptions extends AbstractParameters
 
     /**
      * @param int $scale
-     * @return MergedOrderBookRequestOptions
+     * @return MergedOrderBookRequest
      */
     public function setScale(int $scale): self
     {
@@ -77,7 +77,7 @@ class MergedOrderBookRequestOptions extends AbstractParameters
 
     /**
      * @param int $limit
-     * @return MergedOrderBookRequestOptions
+     * @return MergedOrderBookRequest
      */
     public function setLimit(int $limit): self
     {

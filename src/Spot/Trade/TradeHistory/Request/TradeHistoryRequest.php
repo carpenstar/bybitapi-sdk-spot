@@ -9,7 +9,7 @@ use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
  * If the orderId is null, fromTicketId is passed, and toTicketId is null,
  * then the result is sorted by ticketId in ascend. Otherwise, the result is sorted by ticketId in descend.
  */
-class TradeHistoryRequestOptions extends AbstractParameters
+class TradeHistoryRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -63,7 +63,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param string $symbol
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setSymbol(string $symbol): self
     {
@@ -81,7 +81,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderId
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setOrderId(int $orderId): self
     {
@@ -99,7 +99,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $endTime
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setEndTime(int $endTime): self
     {
@@ -117,7 +117,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $startTime
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setStartTime(int $startTime): self
     {
@@ -135,7 +135,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $limit
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setLimit(int $limit): self
     {
@@ -153,7 +153,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $toTradeId
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setToTradeId(int $toTradeId): self
     {
@@ -171,7 +171,7 @@ class TradeHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $fromTradeId
-     * @return TradeHistoryRequestOptions
+     * @return TradeHistoryRequest
      */
     public function setFromTradeId(int $fromTradeId): self
     {

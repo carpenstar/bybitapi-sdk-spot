@@ -7,7 +7,7 @@ use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Response\LastTradedPriceResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequest;
 use PHPUnit\Framework\TestCase;
 
 class LastTradedPriceTest extends TestCase
@@ -16,7 +16,7 @@ class LastTradedPriceTest extends TestCase
 
     public function testLastTradedPriceRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(LastTradedPrice::class, (new LastTradedPriceRequestOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(LastTradedPrice::class, (new LastTradedPriceRequest())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
         $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');

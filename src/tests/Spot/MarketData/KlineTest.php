@@ -7,7 +7,7 @@ use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response\KlineResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Kline;
-use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request\KlineRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request\KlineRequest;
 use PHPUnit\Framework\TestCase;
 
 class KlineTest extends TestCase
@@ -16,7 +16,7 @@ class KlineTest extends TestCase
 
     public function testKlineRequest()
     {
-        $walletBalanceEndpoint = RestBuilder::make(Kline::class, (new KlineRequestOptions())->setSymbol('BTCUSDT'));
+        $walletBalanceEndpoint = RestBuilder::make(Kline::class, (new KlineRequest())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($walletBalanceEndpoint);
         $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');

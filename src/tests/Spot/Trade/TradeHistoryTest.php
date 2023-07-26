@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Tests\Trade;
 
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Response\TradeHistoryResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request\TradeHistoryRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request\TradeHistoryRequest;
 use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\TradeHistory;
 use PHPUnit\Framework\TestCase;
 
@@ -13,7 +13,7 @@ class TradeHistoryTest extends TestCase
     public function testTradeHistoryEndpoint()
     {
         $data = (new BybitAPI($_ENV["HOST_NAME"], $_ENV["API_KEY"], $_ENV["SECRET_KEY"]))
-            ->rest(TradeHistory::class, (new TradeHistoryRequestOptions()));
+            ->rest(TradeHistory::class, (new TradeHistoryRequest()));
 
         if ($data->getBody()->count() > 0) {
             /** @var TradeHistoryResponse $historyItem */

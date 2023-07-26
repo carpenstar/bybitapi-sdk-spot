@@ -6,7 +6,7 @@ use Carpenstar\ByBitAPI\Core\Enums\EnumOutputMode;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Response\PublicTradingRecordsResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request\PublicTradingRecordsRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request\PublicTradingRecordsRequest;
 use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\PublicTradingRecords;
 use PHPUnit\Framework\TestCase;
 
@@ -16,7 +16,7 @@ class PublicTradingRecordsTest extends TestCase
 
     public function testPublicTradingRecordsRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(PublicTradingRecords::class, (new PublicTradingRecordsRequestOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(PublicTradingRecords::class, (new PublicTradingRecordsRequest())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
         $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');

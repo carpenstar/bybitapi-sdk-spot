@@ -10,7 +10,7 @@ use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
  * 3 days records for institutional clients.
  * Supports fetching 3 months worth of data per request. Returns data up to 6 months old.
  */
-class OrderHistoryRequestOptions extends AbstractParameters
+class OrderHistoryRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -51,7 +51,7 @@ class OrderHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param string $symbol
-     * @return OrderHistoryRequestOptions
+     * @return OrderHistoryRequest
      */
     public function setSymbol(string $symbol): self
     {
@@ -69,7 +69,7 @@ class OrderHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderId
-     * @return OrderHistoryRequestOptions
+     * @return OrderHistoryRequest
      */
     public function setOrderId(int $orderId): self
     {
@@ -87,7 +87,7 @@ class OrderHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $limit
-     * @return OrderHistoryRequestOptions
+     * @return OrderHistoryRequest
      */
     public function setLimit(int $limit): self
     {
@@ -106,7 +106,7 @@ class OrderHistoryRequestOptions extends AbstractParameters
     /**
      * The start timestamp (ms)
      * @param string $dateTime
-     * @return OrderHistoryRequestOptions
+     * @return OrderHistoryRequest
      */
     public function setStartTime(string $dateTime): self
     {
@@ -124,7 +124,7 @@ class OrderHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param string $endTime
-     * @return OrderHistoryRequestOptions
+     * @return OrderHistoryRequest
      */
     public function setEndTime(string $endTime): self
     {
@@ -142,7 +142,7 @@ class OrderHistoryRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderCategory
-     * @return OrderHistoryRequestOptions
+     * @return OrderHistoryRequest
      */
     public function setOrderCategory(int $orderCategory): self
     {
