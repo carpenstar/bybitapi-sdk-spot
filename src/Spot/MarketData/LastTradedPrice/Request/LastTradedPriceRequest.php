@@ -4,7 +4,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice;
 
-class LastTradedPriceRequestOptions extends AbstractParameters
+class LastTradedPriceRequest extends AbstractParameters
 {
 
     /**

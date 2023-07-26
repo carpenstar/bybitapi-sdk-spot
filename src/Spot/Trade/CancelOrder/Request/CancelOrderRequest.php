@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class CancelOrderRequestOptions extends AbstractParameters
+class CancelOrderRequest extends AbstractParameters
 {
     /**
      * Order ID. Required if not passing orderLinkId
@@ -30,7 +30,7 @@ class CancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderId
-     * @return CancelOrderRequestOptions
+     * @return CancelOrderRequest
      */
     public function setOrderId(?int $orderId): self
     {
@@ -48,7 +48,7 @@ class CancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderLinkId
-     * @return CancelOrderRequestOptions
+     * @return CancelOrderRequest
      */
     public function setOrderLinkId(?string $orderLinkId): self
     {
@@ -66,7 +66,7 @@ class CancelOrderRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderCategory
-     * @return CancelOrderRequestOptions
+     * @return CancelOrderRequest
      */
     public function setOrderCategory(int $orderCategory): self
     {

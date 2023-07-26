@@ -7,7 +7,7 @@ use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookPriceItemResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request\OrderBookRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request\OrderBookRequest;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\OrderBook;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class OrderBookTest extends TestCase
 
     public function testOrderBookRequest()
     {
-        $bestBidAskEndpoint = RestBuilder::make(OrderBook::class, (new OrderBookRequestOptions())->setSymbol('BTCUSDT'));
+        $bestBidAskEndpoint = RestBuilder::make(OrderBook::class, (new OrderBookRequest())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($bestBidAskEndpoint);
         $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');

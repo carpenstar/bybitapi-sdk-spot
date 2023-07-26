@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class OpenOrdersResponseOptions extends AbstractParameters
+class OpenOrdersResponse extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -50,7 +50,7 @@ class OpenOrdersResponseOptions extends AbstractParameters
 
     /**
      * @param int $orderId
-     * @return OpenOrdersResponseOptions
+     * @return OpenOrdersResponse
      */
     public function setOrderId(int $orderId): self
     {
@@ -68,7 +68,7 @@ class OpenOrdersResponseOptions extends AbstractParameters
 
     /**
      * @param int $limit
-     * @return OpenOrdersResponseOptions
+     * @return OpenOrdersResponse
      */
     public function setLimit(int $limit): self
     {
@@ -86,7 +86,7 @@ class OpenOrdersResponseOptions extends AbstractParameters
 
     /**
      * @param int $orderCategory
-     * @return OpenOrdersResponseOptions
+     * @return OpenOrdersResponse
      */
     public function setOrderCategory(int $orderCategory): self
     {

@@ -4,7 +4,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\OpenOrders;
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Response\OpenOrderResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Request\OpenOrdersResponseOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Request\OpenOrdersResponse;
 
 class OpenOrders extends PrivateEndpoint implements IGetEndpointInterface
 {
@@ -20,6 +20,6 @@ class OpenOrders extends PrivateEndpoint implements IGetEndpointInterface
 
     protected function getRequestClassname(): string
     {
-        return OpenOrdersResponseOptions::class;
+        return OpenOrdersResponse::class;
     }
 }

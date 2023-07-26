@@ -7,7 +7,7 @@ use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
 use Carpenstar\ByBitAPI\Core\Response\CurlResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response\KlineResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Response\TickersResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request\TickersRequestOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request\TickersRequest;
 use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Tickers;
 use PHPUnit\Framework\TestCase;
 
@@ -17,7 +17,7 @@ class TickersTest extends TestCase
 
     public function testKlineRequest()
     {
-        $walletBalanceEndpoint = RestBuilder::make(Tickers::class, (new TickersRequestOptions())->setSymbol('BTCUSDT'));
+        $walletBalanceEndpoint = RestBuilder::make(Tickers::class, (new TickersRequest())->setSymbol('BTCUSDT'));
 
         $reflectionWalletEndpoint = new \ReflectionClass($walletBalanceEndpoint);
         $checkMethod = $reflectionWalletEndpoint->getMethod('getResponseClassname');

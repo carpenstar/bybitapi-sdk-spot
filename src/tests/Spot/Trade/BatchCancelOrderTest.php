@@ -7,8 +7,8 @@ use Carpenstar\ByBitAPI\Core\Enums\EnumSide;
 use Carpenstar\ByBitAPI\Core\Enums\EnumTimeInForce;
 use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\BatchCancelOrder;
 use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Response\BatchCancelOrderResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request\BatchCancelOrderRequestOptions;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Request\BatchCancelOrderRequest;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequest;
 use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
 use PHPUnit\Framework\TestCase;
 
@@ -21,7 +21,7 @@ class BatchCancelOrderTest extends TestCase
 
         for ($i = 0; $i < 5; $i++) {
             $api
-                ->rest(PlaceOrder::class, (new PlaceOrderRequestOptions())
+                ->rest(PlaceOrder::class, (new PlaceOrderRequest())
                     ->setSymbol('BTCUSDT')
                     ->setOrderType(EnumOrderType::LIMIT)
                     ->setSide(EnumSide::BUY)
@@ -32,7 +32,7 @@ class BatchCancelOrderTest extends TestCase
         }
 
         $response = $api->rest(BatchCancelOrder::class,
-            (new BatchCancelOrderRequestOptions())->setSymbol('BTCUSDT')
+            (new BatchCancelOrderRequest())->setSymbol('BTCUSDT')
         );
 
         /** @var BatchCancelOrderResponse $data */

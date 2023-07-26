@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class TickersRequestOptions extends AbstractParameters
+class TickersRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -22,7 +22,7 @@ class TickersRequestOptions extends AbstractParameters
 
     /**
      * @param string $symbol
-     * @return TickersRequestOptions
+     * @return TickersRequest
      */
     public function setSymbol(string $symbol): self
     {

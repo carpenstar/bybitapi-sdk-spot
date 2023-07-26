@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class BatchCancelOrderByIdRequestOptions extends AbstractParameters
+class BatchCancelOrderByIdRequest extends AbstractParameters
 {
     /**
      * Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.
@@ -24,7 +24,7 @@ class BatchCancelOrderByIdRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderIds
-     * @return BatchCancelOrderByIdRequestOptions
+     * @return BatchCancelOrderByIdRequest
      */
     public function setOrderIds(string $orderIds): self
     {
@@ -42,7 +42,7 @@ class BatchCancelOrderByIdRequestOptions extends AbstractParameters
 
     /**
      * @param int $orderCategory
-     * @return BatchCancelOrderByIdRequestOptions
+     * @return BatchCancelOrderByIdRequest
      */
     public function setOrderCategory(int $orderCategory): self
     {

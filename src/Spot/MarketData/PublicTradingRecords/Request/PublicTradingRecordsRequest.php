@@ -1,27 +1,37 @@
 <?php
-namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request;
+namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class OrderBookRequestOptions extends AbstractParameters
+class PublicTradingRecordsRequest extends AbstractParameters
 {
     /**
-     * Symbol
+     * Name of the trading pair
      * @required true
      * @var string $symbol
      */
     protected string $symbol;
 
     /**
-     * Limit for data size. [1, 200]. Default: 100
+     * Limit for data size. [1, 60]. Default: 60
      * @required false
      * @var int $limit
      */
-    protected int $limit = 100;
+    protected int $limit = 60;
 
     public function __construct()
     {
         $this->setRequiredField('symbol');
+    }
+
+    /**
+     * @param string $symbol
+     * @return PublicTradingRecordsRequest
+     */
+    public function setSymbol(string $symbol): self
+    {
+        $this->symbol = $symbol;
+        return $this;
     }
 
     /**
@@ -33,12 +43,12 @@ class OrderBookRequestOptions extends AbstractParameters
     }
 
     /**
-     * @param string $symbol
-     * @return $this
+     * @param int $limit
+     * @return PublicTradingRecordsRequest
      */
-    public function setSymbol(string $symbol): self
+    public function setLimit(int $limit): self
     {
-        $this->symbol = $symbol;
+        $this->limit = $limit;
         return $this;
     }
 
@@ -48,15 +58,5 @@ class OrderBookRequestOptions extends AbstractParameters
     public function getLimit(): int
     {
         return $this->limit;
-    }
-
-    /**
-     * @param int $limit
-     * @return $this
-     */
-    public function setLimit(int $limit): self
-    {
-        $this->limit = $limit;
-        return $this;
     }
 }

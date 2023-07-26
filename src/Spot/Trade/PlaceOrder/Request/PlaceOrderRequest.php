@@ -8,7 +8,7 @@ use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
 /**
  * Warning: Do not use the duplicate orderLinkId in normal order & TP/SL order
  */
-class PlaceOrderRequestOptions extends AbstractParameters
+class PlaceOrderRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -212,7 +212,7 @@ class PlaceOrderRequestOptions extends AbstractParameters
 
     /**
      * @param string $orderCategory
-     * @return PlaceOrderRequestOptions
+     * @return PlaceOrderRequest
      */
     public function setOrderCategory(string $orderCategory): self
     {
@@ -230,7 +230,7 @@ class PlaceOrderRequestOptions extends AbstractParameters
 
     /**
      * @param float $triggerPrice
-     * @return PlaceOrderRequestOptions
+     * @return PlaceOrderRequest
      */
     public function setTriggerPrice(float $triggerPrice): self
     {

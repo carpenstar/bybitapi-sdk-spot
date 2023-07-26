@@ -3,7 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
-class BestBidAskPriceRequestOptions extends AbstractParameters
+class BestBidAskPriceRequest extends AbstractParameters
 {
     /**
      * Name of the trading pair
@@ -19,7 +19,7 @@ class BestBidAskPriceRequestOptions extends AbstractParameters
 
     /**
      * @param string $symbol
-     * @return BestBidAskPriceRequestOptions
+     * @return BestBidAskPriceRequest
      */
     public function setSymbol(string $symbol): self
     {

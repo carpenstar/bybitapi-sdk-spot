@@ -4,7 +4,7 @@
 [![Code Intelligence Status](https://scrutinizer-ci.com/g/carpenstar/bybitapi-sdk-spot/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 # ByBitAPI - spot-trading package
 
-**Дисклэймер: это неофициальный SDK от биржи ByBit.   
+**Дисклэймер: это неофициальный SDK для интеграции с биржей ByBit.   
 Поддержка функционала осуществляется только в пределах зоны отвественности кода и при возможности со стороны разработчика**
 
 **Разработка интеграции еще не закончена, поэтому работоспособность (как полностью, так и отдельных компонентов) не гарантируется.**
@@ -42,9 +42,9 @@ https://bybit-exchange.github.io/docs/spot/public/bid-ask
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Options\BestBidAskPriceOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request\BestBidAskPriceRequest::class
 
-$options = (new BestBidAskPriceOptions())
+$options = (new BestBidAskPriceRequest())
     ->setSymbol("BTCUSDT");
 ```
 </details>
@@ -70,14 +70,14 @@ interface BestBidAskPrice
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\BestBidAskPrice;
-use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Options\BestBidAskPriceOptions;
-use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Dto\BestBidAskPriceDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request\BestBidAskPriceRequest;
+use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Response\BestBidAskPriceResponse;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new BestBidAskPriceOptions())->setSymbol("BTCUSDT");
+$options = (new BestBidAskPriceRequest())->setSymbol("BTCUSDT");
 
-/** @var BestBidAskPriceDto $bestBidAskPrice */
+/** @var BestBidAskPriceResponse $bestBidAskPrice */
 $bestBidAskPrice = $bybit->rest(BestBidAskPrice::class, $options)->getBody()->fetch();
 
 echo "Symbol: {$bestBidAskPrice->getSymbol()}" . PHP_EOL;
@@ -131,15 +131,15 @@ interface IInstrumentInfoResponse
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\InstrumentInfo;
-use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Dto\InstrumentInfoDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Response\InstrumentInfoResponse;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-/** @var InstrumentInfoDto[] $instrumentInfoData */
+/** @var InstrumentInfoResponse[] $instrumentInfoData */
 $instrumentInfo = $bybit->rest(InstrumentInfo::class)->getBody()->all();
 $instrumentInfo = array_slice($instrumentInfo, 0, 5);
 
-/** @var InstrumentInfoDto $instrumentItem */
+/** @var InstrumentInfoResponse $instrumentItem */
 foreach ($instrumentInfo as $instrumentItem) {
     echo "Name: {$instrumentItem->getName()}" . PHP_EOL;
     echo "Alias: {$instrumentItem->getAlias()}" . PHP_EOL;
@@ -246,9 +246,9 @@ https://bybit-exchange.github.io/docs/spot/public/kline
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Options\KlineOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request\KlineRequest::class
 
-$options = (new KlineOptions())
+$options = (new KlineRequest())
     ->setSymbol("BTCUSDT");
 ```
 </details>
@@ -274,16 +274,16 @@ interface IKlineResponse
 </details>
 
 ```php
-use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Dto\KlineDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response\KlineResponse;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new KlineOptions())
+$options = (new KlineRequest())
     ->setSymbol("ATOMUSDT")
     ->setInterval(EnumIntervals::MINUTE1)
     ->setLimit(3);
 
-/** @var KlineDto $kline */
+/** @var KlineResponse $kline */
 $kline = $bybit->rest(Kline::class, $options)->getBody()->fetch();
 
 echo "Time: {$kline->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
@@ -317,9 +317,9 @@ https://bybit-exchange.github.io/docs/spot/public/last-price
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Options\LastTradedPriceOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequest::class
 
-$options = (new LastTradedPriceOptions())
+$options = (new LastTradedPriceRequest())
     ->setSymbol("BTCUSDT");
 ```
 </details>
@@ -339,17 +339,17 @@ interface ILastTradedPriceResponse
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Options\LastTradedPriceOptions;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Dto\LastTradedPriceDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequest;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Response\LastTradedPriceResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new LastTradedPriceOptions())
+$options = (new LastTradedPriceRequest())
     ->setSymbol("ATOMUSDT");
 
 
-/** @var LastTradedPriceDto $lastTradePrice */
+/** @var LastTradedPriceResponse $lastTradePrice */
 $lastTradePrice = $bybit->rest(LastTradedPrice::class, $options)->getBody()->fetch();
 
 echo "Symbol: {$lastTradePrice->getSymbol()}" . PHP_EOL;
@@ -370,9 +370,9 @@ https://bybit-exchange.github.io/docs/spot/public/merge-depth
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Options\MergedOrderBookOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequest::class
 
-$options = (new MergedOrderBookOptions())
+$options = (new MergedOrderBookRequest())
     ->setSymbol("BTCUSDT")
     ->setScale(1)
     ->setLimit(5);
@@ -404,30 +404,30 @@ interface IMergedOrderBookPriceResponse
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Options\MergedOrderBookOptions;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Dto\MergedOrderBookDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequest;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\MergedOrderBook;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Dto\MergedOrderBookPriceDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response\MergedOrderBookPriceResponse;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new MergedOrderBookOptions())
+$options = (new MergedOrderBookRequest())
     ->setSymbol("BTCUSDT")
     ->setScale(1)
     ->setLimit(5);
 
 
-/** @var MergedOrderBookDto $mergedOrderBook */
+/** @var MergedOrderBookResponse $mergedOrderBook */
 $mergedOrderBook = $bybit->rest(MergedOrderBook::class, $options)->getBody()->fetch();
 
 echo "Time: {$mergedOrderBook->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
 echo '---' . PHP_EOL;
-/** @var MergedOrderBookPriceDto $bid */
+/** @var MergedOrderBookPriceResponse $bid */
 foreach ($mergedOrderBook->getBids()->all() as $bid) {
     echo " - Bid Price: {$bid->getPrice()} Bid Quantity: {$bid->getQuantity()}" . PHP_EOL;
 }
 echo '---' . PHP_EOL;
-/** @var MergedOrderBookPriceDto $ask */
+/** @var MergedOrderBookPriceResponse $ask */
 foreach ($mergedOrderBook->getAsks()->all() as $ask) {
     echo " - Ask Price: {$ask->getPrice()} Ask Quantity: {$ask->getQuantity()}" . PHP_EOL;
 }
@@ -461,9 +461,9 @@ https://bybit-exchange.github.io/docs/spot/public/recent-trade
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Options\PublicTradingRecordsOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request\PublicTradingRecordsRequest::class
 
-$options = (new PublicTradingRecordsOptions())
+$options = (new PublicTradingRecordsRequest())
     ->setSymbol("BTCUSDT")
     ->setLimit(5);
 ```
@@ -487,18 +487,18 @@ interface IPublicTradingRecordsResponse
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Options\PublicTradingRecordsOptions;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request\PublicTradingRecordsRequest;
 use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\PublicTradingRecords;
-use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Dto\PublicTradingRecordsDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Response\PublicTradingRecordsResponse;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new PublicTradingRecordsOptions())
+$options = (new PublicTradingRecordsRequest())
     ->setSymbol("BTCUSDT")
     ->setLimit(5);
 
 
-/** @var PublicTradingRecordsDto[] $publicTradingRecordsList */
+/** @var PublicTradingRecordsResponse[] $publicTradingRecordsList */
 $publicTradingRecordsList = $bybit->rest(PublicTradingRecords::class, $options)->getBody()->all();
 
 foreach ($publicTradingRecordsList as $publicTradingRecord) {
@@ -553,9 +553,9 @@ https://bybit-exchange.github.io/docs/spot/public/tickers
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Options\TickersOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request\TickersRequest::class
 
-$options = (new TickersOptions())
+$options = (new TickersRequest())
     ->setSymbol("BTCUSDT");
 ```
 </details>
@@ -583,17 +583,17 @@ interface ITickersResponse
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Options\TickersOptions;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Dto\TickersDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request\TickersRequest;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Response\TickersResponse;
 use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Tickers;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new TickersOptions())
+$options = (new TickersRequest())
     ->setSymbol("ATOMUSDT");
 
 
-/** @var TickersDto $tickersData */
+/** @var TickersResponse $tickersData */
 $tickersData = $bybit->rest(Tickers::class, $options)->getBody()->fetch();
 
 echo "Time: {$tickersData->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
@@ -629,9 +629,9 @@ https://bybit-exchange.github.io/docs/spot/public/depth
 <details><summary> <b>Параметры запроса:</b></summary>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Options\OrderBookOptions::class
+\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request\OrderBookRequest::class
 
-$options = (new OrderBookOptions())
+$options = (new OrderBookRequest())
     ->setSymbol("ATOMUSDT")
     ->setLimit(5);
 ```
@@ -663,27 +663,27 @@ interface IOrderBookPriceResponse
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\OrderBook;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Dto\OrderBookDto;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Options\OrderBookOptions;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Dto\OrderBookPriceDto;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request\OrderBookRequest;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookPriceResponse;
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-$options = (new OrderBookOptions())
+$options = (new OrderBookRequest())
     ->setSymbol("ATOMUSDT")
     ->setLimit(5);
 
-/** @var OrderBookDto $orderBookData */
+/** @var OrderBookResponse $orderBookData */
 $orderBookData = $bybit->rest(OrderBook::class, $options)->getBody()->fetch();
 
 echo "Time: {$orderBookData->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
 echo "Bids:" . PHP_EOL;
-/** @var OrderBookPriceDto $bid */
+/** @var OrderBookPriceResponse $bid */
 foreach ($orderBookData->getBids()->all() as $bid) {
     echo " - Bid Price: {$bid->getPrice()} Bid Quantity: {$bid->getQuantity()}" . PHP_EOL;
 }
 echo "Asks:" . PHP_EOL;
-/** @var OrderBookPriceDto $ask */
+/** @var OrderBookPriceResponse $ask */
 foreach ($orderBookData->getAsks()->all() as $ask) {
     echo " - Bid Price: {$ask->getPrice()} Bid Quantity: {$ask->getQuantity()}" . PHP_EOL;
 }
@@ -713,15 +713,15 @@ https://bybit-exchange.github.io/docs/spot/trade/place-order
 ***Example:***
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Options\PlaceOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequest;
 use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Dto\PlaceOrderDto;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Response\PlaceOrderResponse;
 
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-/** @var  PlaceOrderDto $placeOrderData */
-$placeOrderData = $bybit->rest(PlaceOrder::class, (new PlaceOrderOptions())
+/** @var  PlaceOrderResponse $placeOrderData */
+$placeOrderData = $bybit->rest(PlaceOrder::class, (new PlaceOrderRequest())
         ->setSymbol('BTCUSDT')
         ->setOrderType('Limit') // see full list at Carpenstar\ByBitAPI\Core\Enums\EnumOrderType
         ->setSide('Buy') // see full list Carpenstar\ByBitAPI\Core\Enums\EnumSide
@@ -774,15 +774,15 @@ https://bybit-exchange.github.io/docs/spot/trade/get-order
 ***Example:***
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Dto\GetOrderDto;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Response\GetOrderResponse;
 use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\GetOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Options\GetOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request\GetOrderRequest;
 
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-/** @var GetOrderDto $orderData */
-$orderData = $bybit->rest(GetOrder::class, (new GetOrderOptions())
+/** @var GetOrderResponse $orderData */
+$orderData = $bybit->rest(GetOrder::class, (new GetOrderRequest())
     ->setOrderLinkId('645fa48a26ccb'))->getBody()->fetch();
 
 
@@ -837,14 +837,14 @@ https://bybit-exchange.github.io/docs/spot/trade/cancel
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\CancelOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Dto\CancelOrderDto;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Options\CancelOrderOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Response\CancelOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request\CancelOrderRequest;
 
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-/** @var CancelOrderDto $canceledOrderData */
-$canceledOrderData = $bybit->rest(CancelOrder::class, (new CancelOrderOptions())
+/** @var CancelOrderResponse $canceledOrderData */
+$canceledOrderData = $bybit->rest(CancelOrder::class, (new CancelOrderRequest())
         ->setOrderLinkId('645fa48a26ccb')
     )->getBody()
     ->fetch();

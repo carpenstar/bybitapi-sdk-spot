@@ -4,7 +4,7 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\TradeHistory;
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Response\TradeHistoryResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request\TradeHistoryRequestOptions;
+use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request\TradeHistoryRequest;
 
 class TradeHistory extends PrivateEndpoint implements IGetEndpointInterface
 {
@@ -20,6 +20,6 @@ class TradeHistory extends PrivateEndpoint implements IGetEndpointInterface
 
     protected function getRequestClassname(): string
     {
-        return TradeHistoryRequestOptions::class;
+        return TradeHistoryRequest::class;
     }
 }
