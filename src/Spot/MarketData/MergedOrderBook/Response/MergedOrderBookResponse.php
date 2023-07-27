@@ -1,7 +1,7 @@
 <?php
 namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response;
 
-use Carpenstar\ByBitAPI\Core\Builders\ResponseBuilder;
+use Carpenstar\ByBitAPI\Core\Builders\ResponseDtoBuilder;
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
@@ -39,14 +39,14 @@ class MergedOrderBookResponse extends AbstractResponse implements IMergedOrderBo
         $bids = new EntityCollection();
         if (!empty($data['bids'])) {
             array_map(function ($bid) use ($bids) {
-                $bids->push(ResponseBuilder::make(OrderBookPriceItemResponse::class, $bid));
+                $bids->push(ResponseDtoBuilder::make(OrderBookPriceItemResponse::class, $bid));
             }, $data['bids']);
         }
 
         $asks = new EntityCollection();
         if (!empty($data['asks'])) {
             array_map(function ($ask) use ($asks) {
-                $asks->push(ResponseBuilder::make(OrderBookPriceItemResponse::class, $ask));
+                $asks->push(ResponseDtoBuilder::make(OrderBookPriceItemResponse::class, $ask));
             }, $data['asks']);
         }
 

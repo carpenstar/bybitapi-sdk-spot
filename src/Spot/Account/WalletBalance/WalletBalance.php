@@ -2,6 +2,7 @@
 namespace Carpenstar\ByBitAPI\Spot\Account\WalletBalance;
 
 use Carpenstar\ByBitAPI\Core\Endpoints\PrivateEndpoint;
+use Carpenstar\ByBitAPI\Core\Interfaces\IEndpointInterface;
 use Carpenstar\ByBitAPI\Core\Interfaces\IGetEndpointInterface;
 use Carpenstar\ByBitAPI\Core\Objects\StubQueryBag;
 use Carpenstar\ByBitAPI\Spot\Account\WalletBalance\Response\WalletBalanceResponse;

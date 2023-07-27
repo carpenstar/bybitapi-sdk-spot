@@ -3,6 +3,7 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request;
 
 
 use Carpenstar\ByBitAPI\Core\Enums\EnumIntervals;
+use Carpenstar\ByBitAPI\Core\Helpers\StringHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
 
 class KlineRequest extends AbstractParameters
@@ -91,7 +92,7 @@ class KlineRequest extends AbstractParameters
      */
     public function setInterval(string $interval): self
     {
-        $this->interval = $interval;
+        $this->interval = StringHelper::clearInterval($interval) . "m";
         return $this;
     }
 

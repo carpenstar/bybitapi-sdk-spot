@@ -95,6 +95,7 @@ class InstrumentInfoResponse extends AbstractResponse implements IInstrumentInfo
      */
     public function __construct(array $data)
     {
+
         $this
             ->setName($data['name'])
             ->setAlias($data['alias'])
