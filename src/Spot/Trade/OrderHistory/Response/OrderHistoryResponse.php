@@ -144,7 +144,7 @@ class OrderHistoryResponse extends AbstractResponse
             ->setCreateTime($data['createTime'])
             ->setUpdateTime($data['updateTime'])
             ->setIsWorking($data['isWorking'])
-            ->setOrderCategory($data['orderCategory'])
+            ->setOrderCategory($data['orderCategory'] ?? 0)
             ->setOrderPrice($data['orderPrice'])
             ->setTriggerPrice($data['triggerPrice'] ?? null);
     }

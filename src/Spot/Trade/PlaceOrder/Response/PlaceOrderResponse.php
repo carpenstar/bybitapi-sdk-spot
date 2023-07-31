@@ -224,7 +224,7 @@ class PlaceOrderResponse extends AbstractResponse
     /**
      * @return string
      */
-    public function getOrderType(): ?string
+    public function getStatusgetOrderType(): ?string
     {
         return $this->orderType;
     }
