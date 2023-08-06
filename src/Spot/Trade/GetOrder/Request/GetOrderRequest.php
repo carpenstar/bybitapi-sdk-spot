@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Interfaces\IGetOrderRequestInterface;
 
-class GetOrderRequest extends AbstractParameters
+class GetOrderRequest extends AbstractParameters implements IGetOrderRequestInterface
 {
     /**
      * Order ID. Required if not passing orderLinkId

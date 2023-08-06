@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Interfaces\IBatchCancelOrderByIdRequestInterface;
 
-class BatchCancelOrderByIdRequest extends AbstractParameters
+class BatchCancelOrderByIdRequest extends AbstractParameters implements IBatchCancelOrderByIdRequestInterface
 {
     /**
      * Order ID, use commas to indicate multiple orderIds. Maximum of 100 ids.

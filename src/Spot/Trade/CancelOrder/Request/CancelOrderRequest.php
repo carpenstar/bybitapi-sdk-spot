@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Interfaces\ICancelOrderRequestInterface;
 
-class CancelOrderRequest extends AbstractParameters
+class CancelOrderRequest extends AbstractParameters implements ICancelOrderRequestInterface
 {
     /**
      * Order ID. Required if not passing orderLinkId

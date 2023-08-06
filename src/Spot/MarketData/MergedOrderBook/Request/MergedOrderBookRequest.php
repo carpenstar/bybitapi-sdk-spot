@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookRequestInterface;
 
-class MergedOrderBookRequest extends AbstractParameters
+class MergedOrderBookRequest extends AbstractParameters implements IMergedOrderBookRequestInterface
 {
     /**
      * Name of the trading pair

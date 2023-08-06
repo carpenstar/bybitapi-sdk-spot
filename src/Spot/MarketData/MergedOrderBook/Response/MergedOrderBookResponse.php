@@ -5,10 +5,10 @@ use Carpenstar\ByBitAPI\Core\Builders\ResponseDtoBuilder;
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookResponseInterface;
 use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Response\OrderBookPriceItemResponse;
 
-class MergedOrderBookResponse extends AbstractResponse implements IMergedOrderBookResponse
+class MergedOrderBookResponse extends AbstractResponse implements IMergedOrderBookResponseInterface
 {
     /**
      * Current time, unit in millisecond

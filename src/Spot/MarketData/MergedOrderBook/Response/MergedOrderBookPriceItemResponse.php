@@ -2,9 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Response;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookPriceResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookPriceResponseInterface;
 
-class MergedOrderBookPriceItemResponse extends AbstractResponse implements IMergedOrderBookPriceResponse
+class MergedOrderBookPriceItemResponse extends AbstractResponse implements IMergedOrderBookPriceResponseInterface
 {
     /**
      * Price position value

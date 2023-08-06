@@ -3,9 +3,9 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineResponseInterface;
 
-class KlineResponse extends AbstractResponse implements IKlineResponse
+class KlineResponse extends AbstractResponse implements IKlineResponseInterface
 {
     private \DateTime $time;
 

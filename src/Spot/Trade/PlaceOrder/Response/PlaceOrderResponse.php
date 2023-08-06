@@ -3,8 +3,9 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Interfaces\IPlaceOrderResponseInterface;
 
-class PlaceOrderResponse extends AbstractResponse
+class PlaceOrderResponse extends AbstractResponse implements IPlaceOrderResponseInterface
 {
     /**
      * Order ID
