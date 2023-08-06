@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces\ITickerRequestInterface;
 
-class TickersRequest extends AbstractParameters
+class TickersRequest extends AbstractParameters implements ITickerRequestInterface
 {
     /**
      * Name of the trading pair

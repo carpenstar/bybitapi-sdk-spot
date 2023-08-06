@@ -5,8 +5,9 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request;
 use Carpenstar\ByBitAPI\Core\Enums\EnumIntervals;
 use Carpenstar\ByBitAPI\Core\Helpers\StringHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineRequestInterface;
 
-class KlineRequest extends AbstractParameters
+class KlineRequest extends AbstractParameters implements IKlineRequestInterface
 {
     /**
      * Name of the trading pair

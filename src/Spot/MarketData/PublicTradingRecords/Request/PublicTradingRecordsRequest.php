@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces\IPublicTradingRecordsRequestInterface;
 
-class PublicTradingRecordsRequest extends AbstractParameters
+class PublicTradingRecordsRequest extends AbstractParameters implements IPublicTradingRecordsRequestInterface
 {
     /**
      * Name of the trading pair

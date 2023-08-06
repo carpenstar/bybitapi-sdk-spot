@@ -3,8 +3,9 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Interfaces\ICancelOrderResponseInterface;
 
-class CancelOrderResponse extends AbstractResponse
+class CancelOrderResponse extends AbstractResponse implements ICancelOrderResponseInterface
 {
     /**
      * Order ID

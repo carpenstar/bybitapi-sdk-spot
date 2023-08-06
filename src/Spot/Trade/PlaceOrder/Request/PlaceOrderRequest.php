@@ -3,12 +3,12 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request;
 
 use Carpenstar\ByBitAPI\Core\Enums\EnumOrderType;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Interfaces\IPlaceOrderRequestInterface;
 
 /**
  * Warning: Do not use the duplicate orderLinkId in normal order & TP/SL order
  */
-class PlaceOrderRequest extends AbstractParameters
+class PlaceOrderRequest extends AbstractParameters implements IPlaceOrderRequestInterface
 {
     /**
      * Name of the trading pair

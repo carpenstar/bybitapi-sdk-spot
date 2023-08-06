@@ -3,8 +3,9 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Interfaces\ITradeHistoryResponseInterface;
 
-class TradeHistoryResponse extends AbstractResponse
+class TradeHistoryResponse extends AbstractResponse implements ITradeHistoryResponseInterface
 {
     /**
      * Name of the trading pair

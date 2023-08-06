@@ -2,9 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Response;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponseInterface;
 
-class LastTradedPriceResponse extends AbstractResponse implements ILastTradedPriceResponse
+class LastTradedPriceResponse extends AbstractResponse implements ILastTradedPriceResponseInterface
 {
     /**
      * Name of the trading pair

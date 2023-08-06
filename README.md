@@ -9,21 +9,6 @@
 
 **Разработка интеграции еще не закончена, поэтому работоспособность (как полностью, так и отдельных компонентов) не гарантируется.**
 
-## Эндпоинты:
-* MARKET DATA
-- [Best Bid Ask Price](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---best-bid-ask-price)
-- [Instrument Info](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---instrument-info)
-- [Kline](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---kline)
-- [Last Traded Price](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---last-traded-price)
-- [Merged Order Book](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---merged-order-book)
-- [Public Trading Records](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---public-trading-records)
-- [Tickers](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---tickers)
-- [Order Book](https://github.com/carpenstar/bybitapi-sdk-spot#market-data---order-book)  
-* TRADE
-- [Place Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---place-order)
-- [Get Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---get-order)
-- [Cancel Order](https://github.com/carpenstar/bybitapi-sdk-spot#trade---cancel-order)
-
 ## Требования
 
 - PHP >= 7.4
@@ -34,38 +19,236 @@
 composer require carpenstar/bybitapi-sdk-spot
 ```
 
-## Поддерживаемые эндпоинты:
+## Содержание:
+
+<table>
+  <tr>
+    <th colspan="4" style="text-align: left; font-weight: bold">MARKET DATA</th>
+  </tr>
+  <tr>
+    <th style="text-align: center; font-weight: bold">Эндпоинт</th>
+    <th style="text-align: center; font-weight: bold">Тип доступа</th>
+    <th style="text-align: center; font-weight: bold">Смотреть в директории</th>
+    <th style="text-align: center; font-weight: bold">Официальная документации</th>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---best-bid-ask-price">Best Bid Ask Price</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="https://bybit-exchange.github.io/docs/spot/public/bid-ask" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---instrument-info">Instrument Info</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---kline">Kline</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---last-traded-price">Last Traded Price</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---merged-order-book">Merged Order Book</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---public-trading-records">Public Trading Records</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---tickers">Tickers</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#market-data---order-book">Order Book</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+
+  <tr>
+    <th colspan="4" style="text-align: left; font-weight: bold">TRADE</th>
+  </tr>
+  <tr>
+    <th style="text-align: center; font-weight: bold">Эндпоинт</th>
+    <th style="text-align: center; font-weight: bold">Тип доступа</th>
+    <th style="text-align: center; font-weight: bold">Смотреть в директории</th>
+    <th style="text-align: center; font-weight: bold">Официальная документации</th>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#trade---place-order">Place Order</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#trade---get-order">Get Order</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://github.com/carpenstar/bybitapi-sdk-spot#trade---cancel-order">Cancel Order</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Batch Cancel Order</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Batch Cancel Order By Id</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Open Orders</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Order History</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Trade History</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+
+  <tr>
+    <th colspan="4" style="text-align: left; font-weight: bold">LEVERAGE TOKEN</th>
+  </tr>
+  <tr>
+    <th style="text-align: center; font-weight: bold">Эндпоинт</th>
+    <th style="text-align: center; font-weight: bold">Тип доступа</th>
+    <th style="text-align: center; font-weight: bold">Смотреть в директории</th>
+    <th style="text-align: center; font-weight: bold">Официальная документации</th>
+  </tr>
+  <tr>
+    <td>
+      <a href="">All Asset Info</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Market Info</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Purchase</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Purchase Redeem History</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Redeem</a>
+    </td>
+    <td>Публичный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: left; font-weight: bold">ACCOUNT</th>
+  </tr>
+  <tr>
+    <th style="text-align: center; font-weight: bold">Эндпоинт</th>
+    <th style="text-align: center; font-weight: bold">Тип доступа</th>
+    <th style="text-align: center; font-weight: bold">Смотреть в директории</th>
+    <th style="text-align: center; font-weight: bold">Официальная документации</th>
+  </tr>
+  <tr>
+    <td>
+      <a href="">Wallet Balance</a>
+    </td>
+    <td>Приватный</td>
+    <td style="text-align: center"><a href="">перейти</a></td>
+    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+  </tr>
+</table>
+
+---
 
 ### Market Data - Best Bid Ask Price
-https://bybit-exchange.github.io/docs/spot/public/bid-ask
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/bid-ask)</b>
 
-<details><summary> <b>Параметры запроса:</b></summary>
-
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request\BestBidAskPriceRequest::class
-
-$options = (new BestBidAskPriceRequest())
-    ->setSymbol("BTCUSDT");
-```
-</details>
-
-
-<details><summary> <b>Структура ответа:</b></summary>
+> Если торговый инструмент не указан, то будет возвращена лучшая цена ордера из всех символов.
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\BestBidAskPrice::class;
-
-interface BestBidAskPrice
-{
-    public function getSymbol(): string;
-    public function getAskPrice(): float;
-    public function getAskQty(): float;
-    public function getBidPrice(): float;
-    public function getBidQty(): float;
-    public function getTime(): \DateTime;
-}
+// Класс эндпоинта:
+\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\BestBidAskPrice::class
 ```
-</details>
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
@@ -79,6 +262,8 @@ $options = (new BestBidAskPriceRequest())->setSymbol("BTCUSDT");
 
 /** @var BestBidAskPriceResponse $bestBidAskPrice */
 $bestBidAskPrice = $bybit->rest(BestBidAskPrice::class, $options)->getBody()->fetch();
+
+
 
 echo "Symbol: {$bestBidAskPrice->getSymbol()}" . PHP_EOL;
 echo "Bid Price: {$bestBidAskPrice->getBidPrice()}" . PHP_EOL;
@@ -98,35 +283,109 @@ echo "Time: {$bestBidAskPrice->getTime()->format("Y-m-d H:i:s")}" . PHP_EOL;
  * Time: 2023-05-09 18:03:57
  */
 ```
----
 
-### Market Data - Instrument Info
-https://bybit-exchange.github.io/docs/spot/public/instrument
-
-<details><summary> <b>Структура ответа:</b></summary>
+<p><b>Параметры запроса:</b></p>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Interfaces\IInstrumentInfoResponse::class;
+namespace Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Interfaces;
 
-interface IInstrumentInfoResponse
+interface IBestBidAskPriceRequestInterface
 {
-    public function getName(): string;
-    public function getAlias(): string;
-    public function getBaseCoin(): string;
-    public function getQuoteCoin(): string;
-    public function getBasePrecision(): float;
-    public function getQuotePrecision(): float;
-    public function getMinTradeQty(): float;
-    public function getMinTradeAmt(): float;
-    public function getMaxTradeQty(): float;
-    public function getMaxTradeAmt(): int;
-    public function getMinPricePrecision(): float;
-    public function getCategory(): int;
-    public function getShowStatus(): int;
-    public function getInnovation(): int;
+    public function setSymbol(string $symbol): self;
+    
+    // .. Getters
 }
 ```
-</details>
+
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Interfaces\IBestBidAskPriceRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol): self</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td>Строка с тикером торговой пары</td>
+  </tr>
+</table>
+ 
+<p><b>Структура ответа:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Interfaces;
+
+interface IBestBidAskPriceResponseInterface
+{
+    public function getSymbol(): string;
+    public function getAskPrice(): float;
+    public function getAskQty(): float;
+    public function getBidPrice(): float;
+    public function getBidQty(): float;
+    public function getTime(): \DateTime;
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Interfaces\IBestBidAskPriceResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getSymbol()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getAskPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getAskQty()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBidPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBidQty()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getTime()</td>
+    <td style="text-align: center">DateTime</td>
+    <td> - </td>
+  </tr>
+</table>
+
+---
+
+<br />
+
+### Market Data - Instrument Info
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/instrument)</b>
+
+<p>Эндпоинт возвращает спецификации по всем символам</p>
+
+```php
+// Класс эндпоинта:
+\Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\InstrumentInfo::class
+```
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
@@ -137,7 +396,9 @@ $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
 /** @var InstrumentInfoResponse[] $instrumentInfoData */
 $instrumentInfo = $bybit->rest(InstrumentInfo::class)->getBody()->all();
-$instrumentInfo = array_slice($instrumentInfo, 0, 5);
+$instrumentInfo = array_slice($instrumentInfo, 0, 2);
+
+
 
 /** @var InstrumentInfoResponse $instrumentItem */
 foreach ($instrumentInfo as $instrumentItem) {
@@ -206,73 +467,134 @@ foreach ($instrumentInfo as $instrumentItem) {
  * Innovation: 0
  * Show Status: 1
  * -----
- * Name: SHIBIUSDT
- * Alias: SHIBIUSDT
- * Base Coin: SHIBI
- * Quote Coin: USDT
- * Base Precision: 1.0E-9
- * Quote Precision: 1.0E-5
- * Min Trade Quantity: 0.0033
- * Min Trade Amount: 0
- * Min Price Precision: 0.1
- * Max Trade Quantity: 0
- * Max Trade Amt: 0
- * Category: 1
- * Innovation: 0
- * Show Status: 1
- * -----
- * Name: NEOBTC
- * Alias: NEOBTC
- * Base Coin: NEO
- * Quote Coin: BTC
- * Base Precision: 0.01
- * Quote Precision: 0.01
- * Min Trade Quantity: 0.01
- * Min Trade Amount: 10000
- * Min Price Precision: 0.01
- * Max Trade Quantity: 100
- * Max Trade Amt: 10000
- * Category: 1
- * Innovation: 0
- * Show Status: 1
- * -----
  */
 ```
----
 
-### Market Data - Kline
-https://bybit-exchange.github.io/docs/spot/public/kline
+<p><b>Параметры запроса:</b></p>
 
-<details><summary> <b>Параметры запроса:</b></summary>
+> Эндпоинт не принимает никаких дополнительных параметров в запросе
 
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Request\KlineRequest::class
-
-$options = (new KlineRequest())
-    ->setSymbol("BTCUSDT");
-```
-</details>
-
-
-<details><summary> <b>Структура ответа:</b></summary>
+<p><b>Структура ответа:</b></p>
 
 ```php
-Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineResponse::class;
+\Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Interfaces\IInstrumentInfoResponse::class;
 
-interface IKlineResponse
+interface IInstrumentInfoResponse
 {
-    public function getTime(): \DateTime;
-    public function getSymbol(): string;
+    public function getName(): string;
     public function getAlias(): string;
-    public function getClosePrice(): float;
-    public function getHighPrice(): float;
-    public function getLowPrice(): float;
-    public function getOpenPrice(): float;
-    public function getTradingVolume(): float;
+    public function getBaseCoin(): string;
+    public function getQuoteCoin(): string;
+    public function getBasePrecision(): float;
+    public function getQuotePrecision(): float;
+    public function getMinTradeQty(): float;
+    public function getMinTradeAmt(): float;
+    public function getMaxTradeQty(): float;
+    public function getMaxTradeAmt(): int;
+    public function getMinPricePrecision(): float;
+    public function getCategory(): int;
+    public function getShowStatus(): int;
+    public function getInnovation(): int;
 }
 ```
-</details>
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\InstrumentInfo\Interfaces\IInstrumentInfoResponse\IInstrumentInfoResponse</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getName()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getAlias()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBaseCoin()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getQuoteCoin()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBasePrecision()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getQuotePrecision()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getMinTradeQty()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getMinTradeAmt()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getMaxTradeQty()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getMaxTradeAmt()</td>
+    <td style="text-align: center">int</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getMinPricePrecision()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getCategory()</td>
+    <td style="text-align: center">int</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getShowStatus()</td>
+    <td style="text-align: center">int</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getInnovation()</td>
+    <td style="text-align: center">int</td>
+    <td> - </td>
+  </tr>
+</table>
 
+---
+
+<br />
+
+### Market Data - Kline
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/kline)</b>
+
+> Эндпоинт возвращает результаты только последних 1000 свечей независимо от того, какой интервал указан.
+
+> Если startTime и endTime не указаны, будут отправлены только последние свечи. 
+
+```php
+// Класс эндпоинта:
+\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Kline::class
+```
 ```php
 use Carpenstar\ByBitAPI\Spot\MarketData\Kline\Response\KlineResponse;
 
@@ -285,6 +607,8 @@ $options = (new KlineRequest())
 
 /** @var KlineResponse $kline */
 $kline = $bybit->rest(Kline::class, $options)->getBody()->fetch();
+
+
 
 echo "Time: {$kline->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
 echo "Symbol: {$kline->getSymbol()}" . PHP_EOL;
@@ -308,35 +632,145 @@ echo "Trading Volume: {$kline->getTradingVolume()}" . PHP_EOL;
  * Trading Volume: 0.03
  */
 ```
----
 
-### Market Data - Last Traded Price
-https://bybit-exchange.github.io/docs/spot/public/last-price
-
-
-<details><summary> <b>Параметры запроса:</b></summary>
+<p><b>Параметры запроса:</b></p>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequest::class
+namespace Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces;
 
-$options = (new LastTradedPriceRequest())
-    ->setSymbol("BTCUSDT");
-```
-</details>
-
-<details><summary> <b>Структура ответа:</b></summary>
-
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponse::class
-
-interface ILastTradedPriceResponse
+interface IKlineRequestInterface
 {
-    public function getSymbol(): string;
-    public function getPrice(): float;
+    public function setSymbol(string $symbol): self;
+    public function setLimit(int $limit): self;
+    public function setInterval(string $interval): self;
+    public function setStartTime(int $startTime): self;
+    public function setEndTime(int $endTime): self;
+    
+    // .. Getters
 }
 ```
-</details>
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol): self</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td> Торговый инструмент</td>
+  </tr>
+  <tr>
+    <td>:: setInterval(string $interval): self</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: setLimit(int $limit): self</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: setStartTime(int $startTime): self</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: setEndTime(int $endTime): self</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+</table>
 
+
+<p><b>Структура ответа:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces;
+
+interface IKlineResponseInterface
+{
+    public function getTime(): \DateTime;
+    public function getSymbol(): string;
+    public function getAlias(): string;
+    public function getClosePrice(): float;
+    public function getHighPrice(): float;
+    public function getLowPrice(): float;
+    public function getOpenPrice(): float;
+    public function getTradingVolume(): float;
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getTime()</td>
+    <td style="text-align: center">DateTime</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getSymbol()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getAlias()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getClosePrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getHighPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getLowPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getOpenPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getTradingVolume()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+</table>
+
+---
+
+<br />
+
+### Market Data - Last Traded Price
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/last-price)</b>
+
+> Если символ не указан, будет возвращена цена всех символов.
+
+```php
+// Класс эндпоинта:
+\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice::class
+```
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request\LastTradedPriceRequest;
@@ -348,9 +782,10 @@ $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 $options = (new LastTradedPriceRequest())
     ->setSymbol("ATOMUSDT");
 
-
 /** @var LastTradedPriceResponse $lastTradePrice */
 $lastTradePrice = $bybit->rest(LastTradedPrice::class, $options)->getBody()->fetch();
+
+
 
 echo "Symbol: {$lastTradePrice->getSymbol()}" . PHP_EOL;
 echo "Price: {$lastTradePrice->getPrice()}" . PHP_EOL;
@@ -363,44 +798,81 @@ echo "Price: {$lastTradePrice->getPrice()}" . PHP_EOL;
  */
 ```
 
-### Market Data - Merged Order Book
-https://bybit-exchange.github.io/docs/spot/public/merge-depth
-
-
-<details><summary> <b>Параметры запроса:</b></summary>
+<p><b>Параметры запроса:</b></p>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Request\MergedOrderBookRequest::class
+namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces;
 
-$options = (new MergedOrderBookRequest())
-    ->setSymbol("BTCUSDT")
-    ->setScale(1)
-    ->setLimit(5);
-```
-</details>
-
-<details><summary> <b>Структура ответа:</b></summary>
-
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookResponse::class;
-
-interface IMergedOrderBookResponse
+interface ILastTradedPriceRequestInterface
 {
-    public function getTime(): \DateTime;
-    public function getAsks(): EntityCollection;
-    public function getBids(): EntityCollection;
+    public function setSymbol(string $symbol): self;
+    
+    // .. Getters
 }
 ```
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces\IMergedOrderBookPriceResponse::class;
+ <table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol): self</td>
+    <td style="text-align: center">НЕТ</td>
+    <td>Торговый инструмент</td>
+  </tr>
+</table>
 
-interface IMergedOrderBookPriceResponse
+<p><b>Структура ответа:</b></p>
+
+```php
+\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponseInterface::class
+
+interface ILastTradedPriceResponseInterface
 {
+    public function getSymbol(): string;
     public function getPrice(): float;
-    public function getQuantity(): float;
 }
 ```
-</details>
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getSymbol()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+</table>
+
+---
+
+<br />
+
+### Market Data - Merged Order Book
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/merge-depth)</b>
+
+```php
+// Класс эндпоинта:
+\Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\MergedOrderBook::class
+```
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
@@ -416,9 +888,10 @@ $options = (new MergedOrderBookRequest())
     ->setScale(1)
     ->setLimit(5);
 
-
 /** @var MergedOrderBookResponse $mergedOrderBook */
 $mergedOrderBook = $bybit->rest(MergedOrderBook::class, $options)->getBody()->fetch();
+
+
 
 echo "Time: {$mergedOrderBook->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
 echo '---' . PHP_EOL;
@@ -453,37 +926,127 @@ echo '---' . PHP_EOL;
  * ---
  */
 ```
----
-### Market Data - Public Trading Records
-https://bybit-exchange.github.io/docs/spot/public/recent-trade
 
-
-<details><summary> <b>Параметры запроса:</b></summary>
+<p><b>Параметры запроса:</b></p>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Request\PublicTradingRecordsRequest::class
+namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces;
 
-$options = (new PublicTradingRecordsRequest())
-    ->setSymbol("BTCUSDT")
-    ->setLimit(5);
+interface IMergedOrderBookRequestInterface
+{
+    public function setSymbol(string $symbol): self;
+    public function setScale(int $scale): self;
+    public function setLimit(int $limit): self;
+}
 ```
-</details>
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\Kline\Interfaces\IKlineRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol)</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td> Торговый инструмент</td>
+  </tr>
+  <tr>
+    <td>:: setScale(int $scale)</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: setLimit(int $limit)</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+</table>
 
-<details><summary> <b>Структура ответа:</b></summary>
+<p><b>Структура ответа:</b></p>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces\IPublicTradingRecordsResponse::class;
+namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces;
 
-interface IPublicTradingRecordsResponse
+interface IMergedOrderBookResponseInterface
+{
+    public function getTime(): \DateTime;
+    public function getAsks(): EntityCollection;
+    public function getBids(): EntityCollection;
+
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getTime()</td>
+    <td style="text-align: center">DateTime</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getAsks()</td>
+    <td style="text-align: center">MergedOrderBookPriceItemResponse[]</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBids()</td>
+    <td style="text-align: center">MergedOrderBookPriceItemResponse[]</td>
+    <td> - </td>
+  </tr>
+</table>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\MergedOrderBook\Interfaces;
+
+interface IMergedOrderBookPriceResponseInterface
 {
     public function getPrice(): float;
     public function getQuantity(): float;
-    public function getTime(): \DateTime;
-    public function getIsBuyerMaker(): bool;
-    public function getType(): int;
 }
 ```
-</details>
+
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getQuantity()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+</table>
+
+---
+
+<br />
+
+### Market Data - Public Trading Records
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/recent-trade)</b>
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
@@ -497,9 +1060,10 @@ $options = (new PublicTradingRecordsRequest())
     ->setSymbol("BTCUSDT")
     ->setLimit(5);
 
-
 /** @var PublicTradingRecordsResponse[] $publicTradingRecordsList */
 $publicTradingRecordsList = $bybit->rest(PublicTradingRecords::class, $options)->getBody()->all();
+
+
 
 foreach ($publicTradingRecordsList as $publicTradingRecord) {
     echo "Time: {$publicTradingRecord->getTime()->format('Y-m-d H:i:i')}" . PHP_EOL;
@@ -545,41 +1109,105 @@ foreach ($publicTradingRecordsList as $publicTradingRecord) {
  * -----
  */
 ```
----
-### Market Data - Tickers
-https://bybit-exchange.github.io/docs/spot/public/tickers
 
-
-<details><summary> <b>Параметры запроса:</b></summary>
+<p><b>Параметры запроса:</b></p>
 
 ```php
-\Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Request\TickersRequest::class
+namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces;
 
-$options = (new TickersRequest())
-    ->setSymbol("BTCUSDT");
-```
-</details>
-
-<details><summary> <b>Структура ответа:</b></summary>
-
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\Tickers\ITickersResponse::class;
-
-interface ITickersResponse
+interface IPublicTradingRecordsRequestInterface
 {
-    public function getTime(): \DateTime;
-    public function getSymbol(): string;
-    public function getBestAskPrice(): float;
-    public function getLastTradedPrice(): float;
-    public function getHighPrice(): float;
-    public function getLowPrice(): float;
-    public function getOpenPrice(): float;
-    public function getBestBidPrice(): float;
-    public function getTradingVolume(): float;
-    public function getTradingQuoteVolume(): float;
+    public function setSymbol(string $symbol): self;
+    public function setLimit(int $limit): self;
+    
+    // .. Getters
 }
 ```
-</details>
+
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces\IPublicTradingRecordsRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol)</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td> Торговый инструмент</td>
+  </tr>
+  <tr>
+    <td>:: setLimit(int $limit)</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+</table>
+
+
+<p><b>Структура ответа:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces;
+
+interface IPublicTradingRecordsResponseInterface
+{
+    public function getPrice(): float;
+    public function getQuantity(): float;
+    public function getTime(): \DateTime;
+    public function getIsBuyerMaker(): bool;
+    public function getType(): int;
+}
+```
+
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\PublicTradingRecords\Interfaces\IPublicTradingRecordsResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getQuantity()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getTime()</td>
+    <td style="text-align: center">DateTime</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getIsBuyerMaker()</td>
+    <td style="text-align: center">bool</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getType()</td>
+    <td style="text-align: center">int</td>
+    <td> - </td>
+  </tr>
+</table>
+
+---
+
+<br />
+
+### Market Data - Tickers
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/tickers)</b>
+
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
@@ -592,9 +1220,10 @@ $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 $options = (new TickersRequest())
     ->setSymbol("ATOMUSDT");
 
-
 /** @var TickersResponse $tickersData */
 $tickersData = $bybit->rest(Tickers::class, $options)->getBody()->fetch();
+
+
 
 echo "Time: {$tickersData->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
 echo "Symbol: {$tickersData->getSymbol()}" . PHP_EOL;
@@ -622,43 +1251,127 @@ echo "Trading Quote Volume: {$tickersData->getTradingQuoteVolume()}" . PHP_EOL;
  * Trading Quote Volume: 18091.003
  */
 ```
+
+<p><b>Параметры запроса:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces;
+
+interface ITickerRequestInterface
+{
+    public function setSymbol(string $symbol): self;
+    
+    // .. Getters
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces\ITickerRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol)</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td>Торговый инструмент</td>
+  </tr>
+</table>
+
+
+<p><b>Структура ответа:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces;
+
+interface ITickersResponseInterface
+{
+    public function getTime(): \DateTime;
+    public function getSymbol(): string;
+    public function getBestAskPrice(): float;
+    public function getLastTradedPrice(): float;
+    public function getHighPrice(): float;
+    public function getLowPrice(): float;
+    public function getOpenPrice(): float;
+    public function getBestBidPrice(): float;
+    public function getTradingVolume(): float;
+    public function getTradingQuoteVolume(): float;
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces\ITickersResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getTime()</td>
+    <td style="text-align: center">DateTime</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getSymbol()</td>
+    <td style="text-align: center">string</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBestAskPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getLastTradedPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getHighPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getLowPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getOpenPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBestBidPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getTradingVolume()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getTradingQuoteVolume()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+</table>
+
+
+---
+
+<br />
+
 ### Market Data - Order Book
-https://bybit-exchange.github.io/docs/spot/public/depth
-
-
-<details><summary> <b>Параметры запроса:</b></summary>
-
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Request\OrderBookRequest::class
-
-$options = (new OrderBookRequest())
-    ->setSymbol("ATOMUSDT")
-    ->setLimit(5);
-```
-</details>
-
-<details><summary> <b>Структура ответа:</b></summary>
-
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookResponse::class;
-
-interface IOrderBookResponse
-{
-public function getTime(): \DateTime;
-public function getAsks(): EntityCollection; // IOrderBookPriceResponse[]
-public function getBids(): EntityCollection; // IOrderBookPriceResponse[]
-}
-```
-```php
-\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookPriceResponse::class;
-
-interface IOrderBookPriceResponse
-{
-    public function getPrice(): float;
-    public function getQuantity(): float;
-}
-```
-</details>
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/public/depth)</b>
 
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
@@ -675,6 +1388,8 @@ $options = (new OrderBookRequest())
 
 /** @var OrderBookResponse $orderBookData */
 $orderBookData = $bybit->rest(OrderBook::class, $options)->getBody()->fetch();
+
+
 
 echo "Time: {$orderBookData->getTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
 echo "Bids:" . PHP_EOL;
@@ -706,68 +1421,214 @@ foreach ($orderBookData->getAsks()->all() as $ask) {
  * - Bid Price: 704.8 Bid Quantity: 179.16
  */
 ```
+
+
+<p><b>Параметры запроса:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces;
+
+interface IOrderBookRequestInterface
+{
+    public function setSymbol(string $symbol): self;
+    public function setLimit(int $limit): self;
+    
+    // .. Getters
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookRequestInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 40%; text-align: center">Метод</th>
+    <th style="width: 10%; text-align: center">Обязательно</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: setSymbol(string $symbol)</td>
+    <td style="text-align: center"><b>ДА</b></td>
+    <td>Торговый инструмент</td>
+  </tr>
+  <tr>
+    <td>:: setLimit(int $limit)</td>
+    <td style="text-align: center">НЕТ</td>
+    <td> - </td>
+  </tr>
+</table>
+
+<p><b>Структура ответа:</b></p>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces;
+
+interface IOrderBookResponseInterface
+{
+    public function getTime(): \DateTime;
+    public function getAsks(): EntityCollection;
+    public function getBids(): EntityCollection;
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getTime()</td>
+    <td style="text-align: center">DateTime</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getAsks()</td>
+    <td style="text-align: center">IOrderBookPriceResponseInterface[]</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getBids()</td>
+    <td style="text-align: center">IOrderBookPriceResponseInterface[]</td>
+    <td> - </td>
+  </tr>
+</table>
+
+```php
+namespace Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces;
+
+interface IOrderBookPriceResponseInterface
+{
+    public function getPrice(): float;
+    public function getQuantity(): float;
+}
+```
+<table style="width: 100%">
+  <tr>
+    <td colspan="3">
+      <b>\Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookPriceResponseInterface</b>
+    </td>
+  </tr>
+  <tr>
+    <th style="width: 30%; text-align: center">Метод</th>
+    <th style="width: 20%; text-align: center">Тип</th>
+    <th style="width: 50%; text-align: center">Описание</th>
+  </tr>
+  <tr>
+    <td>:: getPrice()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+  <tr>
+    <td>:: getQuantity()</td>
+    <td style="text-align: center">float</td>
+    <td> - </td>
+  </tr>
+</table>
+
 ---
-### Trade - Place Order
-https://bybit-exchange.github.io/docs/spot/trade/place-order
+
+<br />
+
+
+### Trade - Batch Cancel Order
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/batch-cancel)</b>
+
+
+<br />
+
+### Trade - Batch Cancel Order By ID
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/cancel-by-id)</b>
+
+```php
+use Carpenstar\ByBitAPI\BybitAPI;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Request\BatchCancelOrderByIdRequest;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\BatchCancelOrderById;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Response\BatchCancelOrderByIdResponse;
+
+$api = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
+
+$params = (new BatchCancelOrderByIdRequest())
+    ->setOrderIds("1474203506643697408,1474203500838780672,1474186221723975424");
+
+$cancelInfo = $api->rest(BatchCancelOrderById::class, $params);
+
+echo "Result Message: {$cancelInfo->getReturnMessage()} \n";
+
+if ($cancelInfo->getBody()->count() > 0) {
+    /** @var BatchCancelOrderByIdResponse $failedOrder */
+    foreach ($cancelInfo->getBody()->all() as $failedOrder) {
+        echo "Failed Order: {$failedOrder->getOrderId()}. Code: {$failedOrder->getCode()} \n";
+    }
+}
+
+/**
+ * Result Message: OK
+ */
+```
+---
+<br />
+
+### Trade - Cancel Order
+https://bybit-exchange.github.io/docs/spot/trade/cancel
 
 ***Example:***
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequest;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Response\PlaceOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\CancelOrder;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Response\CancelOrderResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request\CancelOrderRequest;
 
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-/** @var  PlaceOrderResponse $placeOrderData */
-$placeOrderData = $bybit->rest(PlaceOrder::class, (new PlaceOrderRequest())
-        ->setSymbol('BTCUSDT')
-        ->setOrderType('Limit') // see full list at Carpenstar\ByBitAPI\Core\Enums\EnumOrderType
-        ->setSide('Buy') // see full list Carpenstar\ByBitAPI\Core\Enums\EnumSide
-        ->setOrderLinkId(uniqid())
-        ->setOrderQty(0.001)
-        ->setOrderPrice(1000)
-        ->setTimeInForce('GTC')) // see full list at Carpenstar\ByBitAPI\Core\Enums\EnumTimeInForce
-    ->getBody()
+/** @var CancelOrderResponse $canceledOrderData */
+$canceledOrderData = $bybit->rest(CancelOrder::class, (new CancelOrderRequest())
+        ->setOrderLinkId('645fa48a26ccb')
+    )->getBody()
     ->fetch();
 
 
 
-echo "Order ID: {$placeOrderData->getOrderId()}" . PHP_EOL;
-echo "Order Link ID: {$placeOrderData->getOrderLinkId()}" . PHP_EOL;
-echo "Symbol: {$placeOrderData->getSymbol()}" . PHP_EOL;
-echo "Create Time: {$placeOrderData->getCreateTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
-echo "Order Price: {$placeOrderData->getOrderPrice()}" . PHP_EOL;
-echo "Order Quantity: {$placeOrderData->getOrderQty()}" . PHP_EOL;
-echo "Order Type: {$placeOrderData->getOrderType()}" . PHP_EOL;
-echo "Side: {$placeOrderData->getSide()}" . PHP_EOL;
-echo "Status: {$placeOrderData->getStatus()}" . PHP_EOL;
-echo "Time In Force: {$placeOrderData->getTimeInForce()}" . PHP_EOL;
-echo "Account ID: {$placeOrderData->getAccountId()}" . PHP_EOL;
-echo "Order Category: {$placeOrderData->getOrderCategory()}" . PHP_EOL;
-echo "Trigger Price: {$placeOrderData->getTriggerPrice()}" . PHP_EOL;
-
+echo "Order ID: {$canceledOrderData->getOrderId()}" . PHP_EOL;
+echo "Order Link ID: {$canceledOrderData->getOrderLinkId()}" . PHP_EOL;
+echo "Status: {$canceledOrderData->getStatus()}" . PHP_EOL;
+echo "Symbol: {$canceledOrderData->getSymbol()}" . PHP_EOL;
+echo "Account ID: {$canceledOrderData->getAccountId()}" . PHP_EOL;
+echo "Order Price: {$canceledOrderData->getOrderPrice()}" . PHP_EOL;
+echo "Create Time: {$canceledOrderData->getCreateTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
+echo "Order Quantity: {$canceledOrderData->getOrderQty()}" . PHP_EOL;
+echo "Execution Quantity: {$canceledOrderData->getExecQty()}" . PHP_EOL;
+echo "Time In Force: {$canceledOrderData->getTimeInForce()}" . PHP_EOL;
+echo "Order Type: {$canceledOrderData->getOrderType()}" . PHP_EOL;
+echo "Side: {$canceledOrderData->getSide()}" . PHP_EOL;
 
 /**
  * Result:
  *
  * Order ID: 1419802462493152768
  * Order Link ID: 645fa48a26ccb
+ * Status: CANCELED
  * Symbol: BTCUSDT
- * Create Time: 2023-05-13 14:54:02
+ * Account ID: 1111837
  * Order Price: 1000
+ * Create Time: 2023-05-13 14:54:02
  * Order Quantity: 0.001
+ * Execution Quantity: 0
+ * Time In Force: GTC
  * Order Type: LIMIT
  * Side: BUY
- * Status: NEW
- * Time In Force: GTC
- * Account ID: 1111837
- * Order Category: 0
- * Trigger Price:
  */
 ```
+
 ---
+<br />
+
 ### Trade - Get Order
 https://bybit-exchange.github.io/docs/spot/trade/get-order
 
@@ -830,54 +1691,189 @@ echo "Is Locked {$orderData->getLocked()}" . PHP_EOL;
  */
 ```
 ---
-### Trade - Cancel Order
-https://bybit-exchange.github.io/docs/spot/trade/cancel
+
+<br />
+
+### Trade - Open Orders
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/open-order)</b>
+
+```php
+use Carpenstar\ByBitAPI\BybitAPI;
+use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\OpenOrders;
+use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Request\OpenOrdersRequest;
+use Carpenstar\ByBitAPI\Spot\Trade\OpenOrders\Response\OpenOrdersResponse;
+
+$api = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "apiSecret");
+
+$params = (new OpenOrdersRequest())
+    ->setOrderId(1474203519788618496)
+    ->setSymbol("BTCUSDT")
+    ->setLimit(1);
+
+/** @var OpenOrdersResponse[] $openOrders */
+$openOrders = $api->rest(OpenOrders::class, $params)->getBody()->all();
+
+foreach($openOrders as $order) {
+
+    echo "Result: \n";
+    echo "Account ID: {$order->getAccountId()} \n";
+    echo "Symbol: {$order->getSymbol()} \n";
+    echo "Order Link ID: {$order->getOrderLinkId()} \n";
+    echo "Order ID: {$order->getOrderId()} \n";
+    echo "Order Price: {$order->getOrderPrice()} \n";
+    echo "Order Quantity: {$order->getOrderQty()} \n";
+    echo "Execution Qty: {$order->getExecQty()} \n";
+    echo "Cumulative Quote Quantity: {$order->getCummulativeQuoteQty()} \n";
+    echo "Avg Price: {$order->getAvgPrice()} \n";
+    echo "Status: {$order->getStatus()} \n";
+    echo "Time In Force: {$order->getTimeInForce()} \n";
+    echo "Order Type: {$order->getOrderType()} \n";
+    echo "Side: {$order->getSide()} \n";
+    echo "Stop Price: {$order->getStopPrice()} \n";
+    echo "Create Time: {$order->getCreateTime()->format("Y-m-d H:i:s")} \n";
+    echo "Update Time: {$order->getUpdateTime()->format("Y-m-d H:i:s")} \n";
+    echo "Is Working: {$order->getIsWorking()} \n";
+    echo "Order Category: {$order->getOrderCategory()} \n";
+    echo "Trigger Price: {$order->getTriggerPrice()} \n";
+}
+
+/**
+ * Result:
+ * Account ID: 1111837
+ * Symbol: BTCUSDT
+ * Order Link ID: 64c299000dab5
+ * Order ID: 1474203506643697408
+ * Order Price: 1000
+ * Order Quantity: 0.001
+ * Execution Qty: 0
+ * Cumulative Quote Quantity: 0
+ * Avg Price: 0
+ * Status: NEW
+ * Time In Force: GTC
+ * Order Type: LIMIT
+ * Side: BUY
+ * Stop Price: 0
+ * Create Time: 2023-07-27 16:19:12
+ * Update Time: 2023-07-27 16:19:12
+ * Is Working: 1
+ * Order Category: 0
+ * Trigger Price: NULL
+ */
+```
+
+---
+
+<br />
+
+### Trade - Order History
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/order-history)</b>
+
+---
+
+<br />
+
+### Trade - Place Order
+https://bybit-exchange.github.io/docs/spot/trade/place-order
 
 ***Example:***
 ```php
 use Carpenstar\ByBitAPI\BybitAPI;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\CancelOrder;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Response\CancelOrderResponse;
-use Carpenstar\ByBitAPI\Spot\Trade\CancelOrder\Request\CancelOrderRequest;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Request\PlaceOrderRequest;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\PlaceOrder;
+use Carpenstar\ByBitAPI\Spot\Trade\PlaceOrder\Response\PlaceOrderResponse;
 
 
 $bybit = new BybitAPI('https://api-testnet.bybit.com',"apiKey", "secret");
 
-/** @var CancelOrderResponse $canceledOrderData */
-$canceledOrderData = $bybit->rest(CancelOrder::class, (new CancelOrderRequest())
-        ->setOrderLinkId('645fa48a26ccb')
-    )->getBody()
+/** @var  PlaceOrderResponse $placeOrderData */
+$placeOrderData = $bybit->rest(PlaceOrder::class, (new PlaceOrderRequest())
+        ->setSymbol('BTCUSDT')
+        ->setOrderType('Limit') 
+        ->setSide('Buy')
+        ->setOrderLinkId(uniqid())
+        ->setOrderQty(0.001)
+        ->setOrderPrice(1000)
+        ->setTimeInForce('GTC'))
+    ->getBody()
     ->fetch();
 
 
 
-echo "Order ID: {$canceledOrderData->getOrderId()}" . PHP_EOL;
-echo "Order Link ID: {$canceledOrderData->getOrderLinkId()}" . PHP_EOL;
-echo "Status: {$canceledOrderData->getStatus()}" . PHP_EOL;
-echo "Symbol: {$canceledOrderData->getSymbol()}" . PHP_EOL;
-echo "Account ID: {$canceledOrderData->getAccountId()}" . PHP_EOL;
-echo "Order Price: {$canceledOrderData->getOrderPrice()}" . PHP_EOL;
-echo "Create Time: {$canceledOrderData->getCreateTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
-echo "Order Quantity: {$canceledOrderData->getOrderQty()}" . PHP_EOL;
-echo "Execution Quantity: {$canceledOrderData->getExecQty()}" . PHP_EOL;
-echo "Time In Force: {$canceledOrderData->getTimeInForce()}" . PHP_EOL;
-echo "Order Type: {$canceledOrderData->getOrderType()}" . PHP_EOL;
-echo "Side: {$canceledOrderData->getSide()}" . PHP_EOL;
+echo "Order ID: {$placeOrderData->getOrderId()}" . PHP_EOL;
+echo "Order Link ID: {$placeOrderData->getOrderLinkId()}" . PHP_EOL;
+echo "Symbol: {$placeOrderData->getSymbol()}" . PHP_EOL;
+echo "Create Time: {$placeOrderData->getCreateTime()->format('Y-m-d H:i:s')}" . PHP_EOL;
+echo "Order Price: {$placeOrderData->getOrderPrice()}" . PHP_EOL;
+echo "Order Quantity: {$placeOrderData->getOrderQty()}" . PHP_EOL;
+echo "Order Type: {$placeOrderData->getOrderType()}" . PHP_EOL;
+echo "Side: {$placeOrderData->getSide()}" . PHP_EOL;
+echo "Status: {$placeOrderData->getStatus()}" . PHP_EOL;
+echo "Time In Force: {$placeOrderData->getTimeInForce()}" . PHP_EOL;
+echo "Account ID: {$placeOrderData->getAccountId()}" . PHP_EOL;
+echo "Order Category: {$placeOrderData->getOrderCategory()}" . PHP_EOL;
+echo "Trigger Price: {$placeOrderData->getTriggerPrice()}" . PHP_EOL;
+
 
 /**
  * Result:
  *
  * Order ID: 1419802462493152768
  * Order Link ID: 645fa48a26ccb
- * Status: CANCELED
  * Symbol: BTCUSDT
- * Account ID: 1111837
- * Order Price: 1000
  * Create Time: 2023-05-13 14:54:02
+ * Order Price: 1000
  * Order Quantity: 0.001
- * Execution Quantity: 0
- * Time In Force: GTC
  * Order Type: LIMIT
  * Side: BUY
+ * Status: NEW
+ * Time In Force: GTC
+ * Account ID: 1111837
+ * Order Category: 0
+ * Trigger Price:
  */
 ```
+---
+<br />
+
+
+### Trade - Trade History
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/my-trades)</b>
+
+---
+
+<br />
+
+### Leverage Token - All Asset Info
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/my-trades)</b>
+
+---
+
+<br />
+
+### Leverage Token - Market Info
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/my-trades)</b>
+
+---
+
+<br />
+
+### Leverage Token - Purchase
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/my-trades)</b>
+
+---
+
+<br />
+
+### Leverage Token - Purchase Redeem History
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/my-trades)</b>
+
+---
+
+<br />
+
+### Leverage Token - Reedem
+<b>[Официальная страница документации](https://bybit-exchange.github.io/docs/spot/trade/my-trades)</b>
+
+---
+
+<br />

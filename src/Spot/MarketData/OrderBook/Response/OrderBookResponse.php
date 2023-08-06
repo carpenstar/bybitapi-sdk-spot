@@ -5,9 +5,9 @@ use Carpenstar\ByBitAPI\Core\Builders\ResponseDtoBuilder;
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
 use Carpenstar\ByBitAPI\Core\Objects\Collection\EntityCollection;
-use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\OrderBook\Interfaces\IOrderBookResponseInterface;
 
-class OrderBookResponse extends AbstractResponse implements IOrderBookResponse
+class OrderBookResponse extends AbstractResponse implements IOrderBookResponseInterface
 {
     /**
      * Current time, unit in millisecond

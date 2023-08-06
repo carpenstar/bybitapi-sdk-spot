@@ -3,8 +3,9 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\GetOrder\Interfaces\IGetOrderResponseInterface;
 
-class GetOrderResponse extends AbstractResponse
+class GetOrderResponse extends AbstractResponse implements IGetOrderResponseInterface
 {
     /**
      * Account ID

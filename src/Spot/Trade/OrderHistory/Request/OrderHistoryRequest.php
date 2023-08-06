@@ -3,14 +3,14 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Request;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
-use Carpenstar\ByBitAPI\Core\Objects\OptionsEntity;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Interfaces\IOrderHistoryRequestInterface;
 
 /**
  * Info: If startTime and endTime are both not specified, it returns last 7 days records by default.
  * 3 days records for institutional clients.
  * Supports fetching 3 months worth of data per request. Returns data up to 6 months old.
  */
-class OrderHistoryRequest extends AbstractParameters
+class OrderHistoryRequest extends AbstractParameters implements IOrderHistoryRequestInterface
 {
     /**
      * Name of the trading pair

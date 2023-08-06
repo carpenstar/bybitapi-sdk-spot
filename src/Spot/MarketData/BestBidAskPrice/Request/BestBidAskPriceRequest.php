@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\MarketData\BestBidAskPrice\Interfaces\IBestBidAskPriceRequestInterface;
 
-class BestBidAskPriceRequest extends AbstractParameters
+class BestBidAskPriceRequest extends AbstractParameters implements IBestBidAskPriceRequestInterface
 {
     /**
      * Name of the trading pair
