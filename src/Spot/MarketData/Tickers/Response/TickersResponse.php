@@ -3,9 +3,9 @@ namespace Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
-use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces\ITickersResponse;
+use Carpenstar\ByBitAPI\Spot\MarketData\Tickers\Interfaces\ITickersResponseInterface;
 
-class TickersResponse extends AbstractResponse implements ITickersResponse
+class TickersResponse extends AbstractResponse implements ITickersResponseInterface
 {
     /**
      * Current timestamp

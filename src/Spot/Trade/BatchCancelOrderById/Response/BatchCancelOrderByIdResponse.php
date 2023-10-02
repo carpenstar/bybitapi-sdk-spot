@@ -2,11 +2,12 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Response;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrderById\Interfaces\IBatchCancelOrderByIdResponseInterface;
 
 /**
  * Notice:  If all success, it will be empty
  */
-class BatchCancelOrderByIdResponse extends AbstractResponse
+class BatchCancelOrderByIdResponse extends AbstractResponse implements IBatchCancelOrderByIdResponseInterface
 {
 
     /**

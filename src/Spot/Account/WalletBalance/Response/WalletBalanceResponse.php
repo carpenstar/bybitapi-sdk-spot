@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\Account\WalletBalance\Response;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Account\WalletBalance\Interfaces\IWalletBalanceResponseInterfaces;
 
-class WalletBalanceResponse extends AbstractResponse
+class WalletBalanceResponse extends AbstractResponse implements IWalletBalanceResponseInterfaces
 {
     public static string $rootDataKey = 'balances';
 

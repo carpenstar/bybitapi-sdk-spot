@@ -2,6 +2,7 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\Trade\TradeHistory\Interfaces\ITradeHistoryRequestInterface;
 
 /**
  * Notice: If startTime is not specified, you can only query for records in the last 7 days.
@@ -9,7 +10,7 @@ use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
  * If the orderId is null, fromTicketId is passed, and toTicketId is null,
  * then the result is sorted by ticketId in ascend. Otherwise, the result is sorted by ticketId in descend.
  */
-class TradeHistoryRequest extends AbstractParameters
+class TradeHistoryRequest extends AbstractParameters implements ITradeHistoryRequestInterface
 {
     /**
      * Name of the trading pair

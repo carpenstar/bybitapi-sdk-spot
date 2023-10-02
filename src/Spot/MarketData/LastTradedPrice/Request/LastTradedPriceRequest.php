@@ -2,9 +2,10 @@
 namespace Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Request;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractParameters;
+use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\Interfaces\ILastTradedPriceRequestInterface;
 use Carpenstar\ByBitAPI\Spot\MarketData\LastTradedPrice\LastTradedPrice;
 
-class LastTradedPriceRequest extends AbstractParameters
+class LastTradedPriceRequest extends AbstractParameters implements ILastTradedPriceRequestInterface
 {
 
     /**

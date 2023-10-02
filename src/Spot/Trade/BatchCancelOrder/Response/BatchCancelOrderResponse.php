@@ -2,8 +2,9 @@
 namespace Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\Response;
 
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\BatchCancelOrder\IBatchCancelOrderResponseInterface;
 
-class BatchCancelOrderResponse extends AbstractResponse
+class BatchCancelOrderResponse extends AbstractResponse implements IBatchCancelOrderResponseInterface
 {
     /**
      * @var bool $success

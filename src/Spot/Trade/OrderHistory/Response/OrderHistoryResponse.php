@@ -3,9 +3,10 @@ namespace Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Response;
 
 use Carpenstar\ByBitAPI\Core\Helpers\DateTimeHelper;
 use Carpenstar\ByBitAPI\Core\Objects\AbstractResponse;
+use Carpenstar\ByBitAPI\Spot\Trade\OrderHistory\Interfaces\IOrderHistoryResponseInterface;
 use DateTime;
 
-class OrderHistoryResponse extends AbstractResponse
+class OrderHistoryResponse extends AbstractResponse implements IOrderHistoryResponseInterface
 {
     /**
      * Account ID
