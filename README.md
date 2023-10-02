@@ -159,7 +159,7 @@ composer require carpenstar/bybitapi-sdk-spot
     </td>
     <td>Приватный</td>
     <td style="text-align: center"><a href="https://github.com/carpenstar/bybitapi-sdk-spot/tree/master/src/Spot/Trade/OrderHistory">перейти</a></td>
-    <td style="text-align: center"><a href="" target="_blank">перейти</a></td>
+    <td style="text-align: center"><a href="https://bybit-exchange.github.io/docs/spot/trade/order-history" target="_blank">перейти</a></td>
   </tr>
   <tr>
     <td>
@@ -167,7 +167,7 @@ composer require carpenstar/bybitapi-sdk-spot
     </td>
     <td>Приватный</td>
     <td style="text-align: center"><a href="https://github.com/carpenstar/bybitapi-sdk-spot/tree/master/src/Spot/Trade/TradeHistory">перейти</a></td>
-    <td style="text-align: center"><a href="https://bybit-exchange.github.io/docs/spot/trade/order-history" target="_blank">перейти</a></td>
+    <td style="text-align: center"><a href="https://bybit-exchange.github.io/docs/spot/trade/my-trades" target="_blank">перейти</a></td>
   </tr>
 
   <tr>
